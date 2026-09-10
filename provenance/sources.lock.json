@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "assessedAt": "2026-09-09",
+  "sources": [
+    {
+      "id": "nature-skills",
+      "url": "https://github.com/Yuan1z0825/nature-skills",
+      "commit": "7e626a86a0ac8d078be224e0a76aa1327875b0a1",
+      "license": "Apache-2.0 (repository), component-specific MIT and CC BY-NC 4.0 notices retained",
+      "archive": "upstream/nature-skills",
+      "integration": "Pinned unchanged submodule; full English overlay; all19 entrypoints and shared resources."
+    },
+    {
+      "id": "nature-paper-skills-legacy",
+      "url": "https://github.com/Boom5426/Nature-Paper-Skills",
+      "commit": "44cff42ac22a5ac4dcfb7ba01b2e81c21d689ea6",
+      "license": "MIT",
+      "archive": "sources/legacy-deployment",
+      "integration": "Existing11 deployed skill trees; scientific-writing upgraded separately; retain licensed legacy rebuttal."
+    },
+    {
+      "id": "nature-paper-skills-current",
+      "url": "https://github.com/Boom5426/Nature-Paper-Skills",
+      "commit": "cd0894f24b8739a5ba4197f4a2323c7828fac05d",
+      "license": "MIT; figure audit helpers Apache-2.0 with retained upstream notices",
+      "archive": "sources/nature-paper-skills-current",
+      "integration": "Draft markers, review architecture, audit_bib and3 figure audits only. Current unresolved-license rebuttal excluded."
+    },
+    {
+      "id": "kdense",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "commit": "1e5eeffbdad3749125afe7ab48a39694e27f181c",
+      "version": "v2.66.0",
+      "license": "MIT; bundled Elsevier files LPPL-1.3c-or-later",
+      "archive": "sources/kdense",
+      "integration": "scientific-writing,citation-management,venue-templates,scientific-visualization; literature-review guidance adapted only. Restricted docx/pdf/pptx/xlsx skills not imported."
+    },
+    {
+      "id": "orchestra",
+      "url": "https://github.com/Orchestra-Research/AI-Research-SKILLs",
+      "commit": "773a52944ba4747a18bd4ae9ade53fff041adcbc",
+      "license": "MIT",
+      "archive": "sources/orchestra",
+      "integration": "ML paper instructions/references adapted as conference-paper-writing; third-party conference template bundles deliberately omitted."
+    },
+    {
+      "id": "sciwrite",
+      "url": "https://github.com/labarba/sciwrite",
+      "commit": "8a57fa73d541bdcf7d8501db61c018cb454e9afa",
+      "license": "CC-BY-4.0",
+      "archive": "sources/legacy-deployment/manuscript-review",
+      "integration": "Legacy clarity review preserved with manuscript-writing-review compatibility alias."
+    }
+  ]
+}

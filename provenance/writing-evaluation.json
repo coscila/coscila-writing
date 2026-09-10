@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-09",
+  "synthetic": true,
+  "method": "Same-model instruction-conditioned manual exercise authored and judged sequentially by the implementation assistant in one ongoing session.",
+  "independentRuns": false,
+  "blinded": false,
+  "randomized": false,
+  "contextReset": false,
+  "independentJudge": false,
+  "externalLookup": false,
+  "humanScientificReview": false,
+  "fixture": {
+    "path": "tests/fixtures/writing-evaluation.json",
+    "sha256": "28db71810534ee6cf96c1f67432ccde52420b107c6cb5b55eb07f2b1da21582a"
+  },
+  "limits": [
+    "Only two synthetic cases and one output per condition.",
+    "General assistant accuracy obligations apply to both conditions.",
+    "Shared context and self-scoring prevent causal attribution to the skill package.",
+    "This is not evidence of state-of-the-art quality or manuscript acceptance."
+  ],
+  "cases": [
+    {
+      "id": "results-and-abstract",
+      "request": "Use the supplied record to draft a Results paragraph and a two-sentence abstract conclusion in English. Preserve uncertainty and report missing evidence.",
+      "input": {
+        "design": "Single-site exploratory observational study; 40 participants per group; no randomized assignment.",
+        "result": "Response: 17/40 in group A and 12/40 in group B; unadjusted risk ratio 1.42, 95% CI 0.78-2.58. The interval crosses 1. No prespecified primary endpoint was recorded.",
+        "missing": "No adjustment for baseline differences was supplied. No external references were supplied.",
+        "draft": "Our intervention proved superior and increased response by 42%. The groups were equivalent at baseline."
+      },
+      "conditions": {
+        "baseline": {
+          "instructions": [
+            {
+              "path": "/home/phflot/openclaw/install-ocsl-research-tools/bundled/skills/scientific-writing/SKILL.md",
+              "sha256": "73f106b83e5ff736b1fa7c2eb79ad92b95d13e35ee49a672efd3b1c5227acdb8"
+            }
+          ],
+          "output": {
+            "path": "docs/evaluation/results-and-abstract.baseline.md",
+            "sha256": "9450ddc36e9e20024456917ebc8af861920743c911dff78702c811af8bafb093"
+          },
+          "criteria": [
+            {
+              "criterion": "Preserves all counts and uncertainty",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Does not infer causality, superiority or equivalence",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Labels exploratory observational design",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Does not invent a primary endpoint, adjustment or reference",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            }
+          ]
+        },
+        "integrated": {
+          "instructions": [
+            {
+              "path": "skills/scientific-writing/SKILL.md",
+              "sha256": "fce679722551c03a5a30059e1280916b74c00adad8fd2d00c17f9d9fff7c86f0"
+            }
+          ],
+          "output": {
+            "path": "docs/evaluation/results-and-abstract.integrated.md",
+            "sha256": "7ff507f565c0b193fd7db4da876b5ad5bce99e9e44fbb9972c35a14fcb337f2c"
+          },
+          "criteria": [
+            {
+              "criterion": "Preserves all counts and uncertainty",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Does not infer causality, superiority or equivalence",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Labels exploratory observational design",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Does not invent a primary endpoint, adjustment or reference",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "author-response",
+      "request": "Draft a response to the reviewer asking for a new external validation cohort and a revised limitations sentence.",
+      "input": {
+        "reviewer": "Please validate the model in an independent hospital cohort and address generalizability.",
+        "completed_revision": "Only the limitations paragraph was revised. It now says that single-hospital development leaves cross-hospital performance untested.",
+        "evidence": "No external cohort is available, and no new analysis was performed."
+      },
+      "conditions": {
+        "baseline": {
+          "instructions": [
+            {
+              "path": "/home/phflot/openclaw/install-ocsl-research-tools/bundled/skills/rebuttal-response/SKILL.md",
+              "sha256": "a521c3e599a433fde69a3d65056f9975b3ab220fead0a736fc3237912b52cc4e"
+            }
+          ],
+          "output": {
+            "path": "docs/evaluation/author-response.baseline.md",
+            "sha256": "1dd4f99bcfae223ea36de184283f944b6ff56db46fce478945c4e4e7d5c2cbaf"
+          },
+          "criteria": [
+            {
+              "criterion": "Does not claim new analyses or completed external validation",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "States the limitation and the actual revision",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Separates unmet request from completed text change",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Uses a respectful, specific response",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            }
+          ]
+        },
+        "integrated": {
+          "instructions": [
+            {
+              "path": "translations/nature-skills/en/skills/nature-response/SKILL.md",
+              "sha256": "ca36dfb7b94e2ec7c757f8ed386d5d42fc9c800632ff6d35b716616940b35232"
+            },
+            {
+              "path": "translations/nature-skills/en/skills/nature-response/static/core/stance.md",
+              "sha256": "13e88e6a10a411cabc34a3340549606353bcf2ba6e0c6eb5966511b296782cce"
+            },
+            {
+              "path": "translations/nature-skills/en/skills/nature-response/static/core/workflow.md",
+              "sha256": "cf381eba78aa6b8d92f3cc5a487e191a447027af6364da01d866a0df47bcfa8b"
+            },
+            {
+              "path": "translations/nature-skills/en/skills/nature-response/references/difficult-cases.md",
+              "sha256": "49595ab1330a237787423988d81e96d54881c46b2f4d7c65429b03a03fad1adb"
+            }
+          ],
+          "output": {
+            "path": "docs/evaluation/author-response.integrated.md",
+            "sha256": "d7fb8edcd95925523dd4137365129162e1d2167380b481a9cc43474193b6b8a3"
+          },
+          "criteria": [
+            {
+              "criterion": "Does not claim new analyses or completed external validation",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "States the limitation and the actual revision",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Separates unmet request from completed text change",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            },
+            {
+              "criterion": "Uses a respectful, specific response",
+              "judgment": "met",
+              "judge": "producing assistant; not independent"
+            }
+          ]
+        }
+      },
+      "scopeOverride": "Bounded single-comment draft proceeds with editorial decision unknown; no package-wide strategy or readiness is asserted. Initial upstream Major/Minor intake gate was identified as unnecessary friction for this fixture."
+    }
+  ],
+  "conclusion": "Both conditions met the specified factual criteria in this exercise. Integrated outputs expose provenance and reported-versus-verified status more explicitly; no quality superiority is demonstrated."
+}

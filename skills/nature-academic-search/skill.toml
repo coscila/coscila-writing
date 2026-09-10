@@ -1,0 +1,4 @@
+schema_version = 1
+id = "nature-academic-search"
+primary_environment = "writing-mcp"
+aliases = []

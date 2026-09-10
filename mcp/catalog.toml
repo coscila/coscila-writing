@@ -1,0 +1,17 @@
+schema_version = 1
+
+[[server]]
+name = "ocsl_writing_catalog"
+environment = "writing-core"
+module = "ocsl_writing.catalog_server"
+transport = "stdio"
+enabled = true
+file_access = "read-only"
+
+[[server]]
+name = "ocsl_writing_academic_search"
+environment = "writing-mcp"
+module = "ocsl_writing.academic_server"
+transport = "stdio"
+enabled = true
+file_access = "read-only"

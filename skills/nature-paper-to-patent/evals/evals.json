@@ -1,0 +1,23 @@
+{
+  "skill_name": "nature-paper-to-patent",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze a PDF paper containing a model architecture, loss function and detection workflow, and generate a complete Chinese invention-patent first draft. Produce separate claims, specification, abstract and abstract-figure documents. All core equations must be native editable Word equations, and every claim feature must trace to a paper page or equation.",
+      "expected_output": "A complete Chinese patent package with stable source IDs, evidence ledger, claim-feature map, editable equations, a claim-aligned main flowchart, methodology figures, separate DOCX files, and passing validation reports.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The paper is a scanned PDF and OCR is unclear for some equations. First organize the confirmable technical solution and draft claims. Do not guess uncertain mathematical symbols.",
+      "expected_output": "An OCR-aware claim draft that marks uncertain source blocks, excludes unsupported limitations from formal claims, lists specific inventor questions, and does not fabricate equation symbols.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Compare a paper with an existing patent. Assess support in the paper for each patent claim, identifying material unique to the paper or patent and where patent coverage is broader or narrower.",
+      "expected_output": "Separate source maps plus a bidirectional feature table using the declared relationship labels, exact locators for both documents, and no assumption that patent-only text is paper-supported.",
+      "files": []
+    }
+  ]
+}

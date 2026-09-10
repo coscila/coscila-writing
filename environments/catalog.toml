@@ -1,0 +1,30 @@
+schema_version = 1
+hardware = "cpu"
+
+[[environment]]
+id = "writing-core"
+description = "Catalogs, provenance validation and scientific writing orchestration"
+requirements = ["PyYAML==6.0.2", "jsonschema==4.23.0", "requests==2.32.5"]
+probes = ["import yaml, jsonschema, requests"]
+additional_runtimes = []
+
+[[environment]]
+id = "writing-documents"
+description = "PDF, DOCX and PowerPoint inspection and generation"
+requirements = ["PyYAML==6.0.2", "jsonschema==4.23.0", "python-docx==1.1.2", "pypdf==5.9.0", "PyMuPDF==1.26.4", "python-pptx==1.0.2", "Pillow==11.3.0", "bibtexparser==1.4.3", "mammoth==1.10.0", "pdfplumber==0.11.7", "pypdfium2==4.30.0", "openai==2.0.0", "latex2mathml==3.78.1", "playwright==1.55.0", "matplotlib==3.10.6", "numpy==2.2.6", "requests==2.32.5"]
+probes = ["import docx, pypdf, fitz, pptx, PIL, bibtexparser, mammoth, pdfplumber, pypdfium2, openai, latex2mathml, playwright, requests; import matplotlib; matplotlib.use('Agg'); import numpy"]
+additional_runtimes = ["pandoc", "pdflatex", "libreoffice", "node", "chromium", "detex", "pdfinfo", "pdffonts"]
+
+[[environment]]
+id = "writing-figures"
+description = "CPU scientific visualization and figure inspection"
+requirements = ["PyYAML==6.0.2", "matplotlib==3.10.6", "seaborn==0.13.2", "numpy==2.2.6", "pandas==2.3.2", "scipy==1.16.1", "plotly==6.3.0", "Pillow==11.3.0", "scikit-image==0.25.2", "PyMuPDF==1.26.4"]
+probes = ["import matplotlib; matplotlib.use('Agg'); import seaborn, numpy, pandas, scipy, plotly, PIL, skimage, fitz"]
+additional_runtimes = ["Rscript", "chromium", "pdflatex"]
+
+[[environment]]
+id = "writing-mcp"
+description = "Writing catalog and scholarly metadata MCP services"
+requirements = ["PyYAML==6.0.2", "jsonschema==4.23.0", "httpx==0.28.1", "mcp==1.30.0", "requests==2.32.5", "toml==0.10.2", "lxml==5.4.0", "pybliometrics==4.4.1"]
+probes = ["import yaml, jsonschema, httpx, mcp, requests, toml, lxml, pybliometrics"]
+additional_runtimes = []

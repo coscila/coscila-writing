@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "servers": {
+    "ocsl_writing_catalog": {
+      "public": "c0f679fe01a06471067b32d295c470b76c3dd595a3f84e483051fa84ae73715b",
+      "elsevier": "c0f679fe01a06471067b32d295c470b76c3dd595a3f84e483051fa84ae73715b"
+    },
+    "ocsl_writing_academic_search": {
+      "public": "0e4e525f8fee189a574dd2de2951dbf1a34f0cee11953ac92ae1ece540e1475f",
+      "elsevier": "036ddca85d524988a74dcc63d96e266483bedab24063c9068ab33d23eaa98e08"
+    }
+  }
+}

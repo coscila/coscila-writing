@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocsl-writing"
+version = "0.1.0"
+description = "Scientific writing skills and MCP companion for OC Science Lab"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Philipp Flotho", email = "PhilippFlotho@gmail.com" }]
+dependencies = ["PyYAML==6.0.2", "jsonschema==4.23.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3"]
+
+# Runtime assets are part of the source-checkout contract. Use bin/ocsl-writing;
+# a wheel alone is deliberately not advertised as a complete deployment.
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

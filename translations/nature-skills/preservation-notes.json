@@ -1,0 +1,467 @@
+{
+  "README.md": {
+    "reason": "Literal upstream Chinese README-mirror verification regex, retained as a source-maintenance example. Its label means Chinese instructions; this overlay uses its own complete-corpus verifier."
+  },
+  "README_EN.md": {
+    "reason": "Literal upstream Chinese README-mirror verification regex, retained as a source-maintenance example. Its label means Chinese instructions; this overlay uses its own complete-corpus verifier."
+  },
+  "assets/nature-ai-gpt-claude-service.png": {
+    "reason": "Original Chinese promotional bitmap retained unchanged with a complete English text sidecar; attribution/source artifact only, not an operational instruction.",
+    "sidecars": [
+      "assets/nature-ai-gpt-claude-service.png.en.md"
+    ]
+  },
+  "assets/readme-banner-cn.png": {
+    "reason": "Original Chinese promotional bitmap retained unchanged with a complete English text sidecar; attribution/source artifact only, not an operational instruction.",
+    "sidecars": [
+      "assets/readme-banner-cn.png.en.md"
+    ]
+  },
+  "assets/readme-banner-en.png": {
+    "reason": "Upstream English companion banner retained unchanged; the Chinese banner has a complete English sidecar."
+  },
+  "assets/微信图片_20260722195146_331_1.jpg": {
+    "reason": "Original Chinese promotional bitmap retained unchanged with a complete English text sidecar; attribution/source artifact only, not an operational instruction.",
+    "sidecars": [
+      "assets/微信图片_20260722195146_331_1.jpg.en.md"
+    ]
+  },
+  "index.html": {
+    "reason": "Complete optional Chinese locale and Chinese installation-platform locale are retained alongside corresponding upstream English translations. Initial HTML and default selection are English. The Chinese language-switch label names the target language."
+  },
+  "scripts/tests/test_main_text_discipline.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "scripts/tests/test_nature_figure_multipanel_evidence.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "scripts/update-reference-tocs.py": {
+    "reason": "Chinese heading labels or exact mirror-check regexes retained for source-maintenance compatibility with the original bilingual upstream repository. This English overlay is verified by its separate coverage tool."
+  },
+  "scripts/validate-readme-mirror.py": {
+    "reason": "Chinese heading labels or exact mirror-check regexes retained for source-maintenance compatibility with the original bilingual upstream repository. This English overlay is verified by its separate coverage tool."
+  },
+  "scripts/validate-repository.py": {
+    "reason": "Chinese heading labels or exact mirror-check regexes retained for source-maintenance compatibility with the original bilingual upstream repository. This English overlay is verified by its separate coverage tool."
+  },
+  "skills/nature-academic-search/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-academic-search/config/triggers-academic-search.toml": {
+    "reason": "Chinese language trigger aliases preserved for multilingual matching, alongside English triggers."
+  },
+  "skills/nature-academic-search/references/workflows/wf6-strict-other-citation-impact-audit.md": {
+    "reason": "Original Chinese query aliases for strict independent citations and influential citing authors. Academy membership and named Chinese talent awards remain in their original form for identity checks: Distinguished Young Scholars, Changjiang Scholars, and Excellent Young Scientists. All procedures and report templates are English."
+  },
+  "skills/nature-citation/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-citation/references/journal-scope.md": {
+    "reason": "Chinese-language request examples meaning flagship journals only / main journal, immediately paired with the English scope explanation."
+  },
+  "skills/nature-citation/scripts/nature_citation.py": {
+    "reason": "Chinese author-field label retained for parsing source bibliography metadata; this is an input matcher, not output prose."
+  },
+  "skills/nature-citation/static/core/chinese-mode.md": {
+    "reason": "Chinese trigger aliases and evidence labels in an explicitly Chinese-language mode: strong support, partial support, background support, and not recommended as support for this sentence. Preserve input-language examples; English workflow explains them."
+  },
+  "skills/nature-citation/static/core/principles.md": {
+    "reason": "Chinese scope aliases retained with complete adjacent English definitions: Nature Portfolio, CNS and sister journals, or Nature/Science/Cell flagships only."
+  },
+  "skills/nature-data/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-data/references/chinese-author-alignment.md": {
+    "reason": "Source-language phrases intentionally retained in a Chinese-to-English terminology/anti-literal-translation guide. Each table row pairs the source with English meaning and guidance; source examples cover all-data-in-text, reasonable requests, privacy/commercial restrictions, deposition after acceptance, and reused public data."
+  },
+  "skills/nature-data/references/statement-patterns.md": {
+    "reason": "Chinese source phrase means available from the corresponding author on reasonable request; adjacent English states its meaning and limitations."
+  },
+  "skills/nature-data/static/core/chinese-mode.md": {
+    "reason": "Chinese input trigger examples and a bilingual technical glossary with explicit English equivalents. Preserve the actual language examples for Chinese-author requests."
+  },
+  "skills/nature-downloader/README.md": {
+    "reason": "Chinese-title CNKI routing example, meaning research on digital governance in the context of rural revitalization; preserving the input script exercises the Chinese literature route."
+  },
+  "skills/nature-downloader/README_EN.md": {
+    "reason": "Chinese-title CNKI routing example, meaning research on digital governance in the context of rural revitalization; preserving the input script exercises the Chinese literature route."
+  },
+  "skills/nature-downloader/SKILL.md": {
+    "reason": "Chinese-title CNKI routing fixture, meaning research on digital governance in the context of rural revitalization. All operational prose and prompts are English; the title stays Chinese to exercise language-based routing."
+  },
+  "skills/nature-downloader/assets/banner.jpg": {
+    "reason": "Visual inspection: banner labels are English skill identifiers and auto-download; original image retained unchanged."
+  },
+  "skills/nature-downloader/references/delivery-verification-and-failures.md": {
+    "reason": "Literal Chinese request/website labels for include supplementary information, institution selection and institutional login. English alternatives explain these multilingual matching examples."
+  },
+  "skills/nature-downloader/references/institutional-browser-workflow.md": {
+    "reason": "Literal Chinese website labels for view full text, login, confirm login, continue login, and institution selection. These labels identify real controls; surrounding procedures are English."
+  },
+  "skills/nature-downloader/scripts/batch_download.mjs": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/scripts/lib/anti-bot.mjs": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/scripts/lib/cnki.mjs": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/scripts/lib/provider-utils.mjs": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/scripts/lib/status-codes.mjs": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/src/validators.py": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/src/wizard.py": {
+    "reason": "Exact Chinese DOM/login/provider/institution names and accepted user command aliases retained for real-site and input matching; comments, docstrings and displayed messages are English. Examples include login, institutional identity, password, skip, confirm, CNKI/Wanfang/VIP and Jiaotong institution aliases."
+  },
+  "skills/nature-downloader/tests/python/test_config_wizard.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-downloader/tests/unit/cnki.test.mjs": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-downloader/tests/unit/routing.test.mjs": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-figure/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-01-bar-charts.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-02-line-trends.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-03-heatmaps.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-04-scatter-bubble.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-05-radar-polar.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-06-distributions.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-07-forest-interval.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-08-area-stacked.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-09-image-plates.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/chart-atlas/atlas-10-network-matrix.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/Dispersion_motivation.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/Dispersion_observation.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/Dispersion_observation_distillation.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/ImmunoStruct_contrastive.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/ImmunoStruct_results_CEDAR.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/ImmunoStruct_results_IEDB.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/ImmunoStruct_schematic.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/assets/RNAGenScape_schematic.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_CellSpliceNet/figures/ablation.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_CellSpliceNet/figures/comparison.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_CellSpliceNet/figures/comparison_human.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_CellSpliceNet/figures/comparison_worm.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/diffusion_swiss_roll.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/fig2_comparison_GeneRegulatory.pdf": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/fig2_comparison_GeneRegulatory.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/fig2_comparison_Trajectory.pdf": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/fig2_comparison_Trajectory.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/figX_comparison_Ablation.pdf": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Cflows/figures/figX_comparison_Ablation.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Dispersion/figures/idea.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_Dispersion/figures/illustration.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_FPGM/figures/freq_prior.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_ImmunoStruct/figures/bars_ablation_Cancer.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_ImmunoStruct/figures/bars_ablation_IEDB.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_ImmunoStruct/figures/bars_comparison_Cancer.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_ImmunoStruct/figures/bars_comparison_IEDB.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_RNAGenScape/figures/manifold.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_RNAGenScape/figures/manifold_holes.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_RNAGenScape/figures/results_comparison_optimization.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_RNAGenScape/figures/results_comparison_speed.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_RNAGenScape/figures/results_sweep.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_VIGIL/figures/ablation_curves.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_VIGIL/figures/comparison_posttraining.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_VIGIL/figures/comparison_radar.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_VIGIL/figures/concept.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_brainteaser/figures/brute_force.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_brainteaser/figures/correctness_by_category.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_brainteaser/figures/correctness_by_subcategory.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_brainteaser/figures/rewriting.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_brainteaser/figures/selfcorrection_math.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_ophthal_review/figures/composition_heatmap.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/figures4papers/figure_ophthal_review/figures/trend_by_month.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/gallery/fig1-material-mechanism-rich.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/gallery/fig2-spatial-imaging-rich.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/gallery/fig3-in-vivo-efficacy-rich.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/gallery/fig4-single-cell-systems-rich.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/assets/gallery/fig5-validation-perturbation-rich.png": {
+    "reason": "Scientific figure binary retained unchanged. Visual inspection of the raster figure or matching raster preview found English labels, mathematical symbols and scientific identifiers; no Chinese prose requires translation."
+  },
+  "skills/nature-figure/evals/evals.json": {
+    "reason": "Deliberate Chinese-trigger evaluation. The preserved prompt means: make a grouped violin plot from my experimental data for a paper, with editable PDF and 600 dpi TIFF. Translating the fixture would remove the language-routing test."
+  },
+  "skills/nature-image2ppt/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-image2ppt/cli/image2ppt/runtime/text_hints.py": {
+    "reason": "Exact Chinese validator/metadata/Unicode input match strings retained. English equivalents and rules remain in the implementation; translation would alter acceptance of Chinese slide text."
+  },
+  "skills/nature-image2ppt/cli/image2ppt/runtime/validate_pptx.py": {
+    "reason": "Exact Chinese validator/metadata/Unicode input match strings retained. English equivalents and rules remain in the implementation; translation would alter acceptance of Chinese slide text."
+  },
+  "skills/nature-image2ppt/references/manifest-schema.md": {
+    "reason": "Exact validator input terms: icon, photo, separation, structure, crop, approximation and downgrade/fallback. English equivalents and substring semantics are given in the surrounding text."
+  },
+  "skills/nature-image2ppt/scripts/render_image2ppt_qa.py": {
+    "reason": "Exact Chinese validator/metadata/Unicode input match strings retained. English equivalents and rules remain in the implementation; translation would alter acceptance of Chinese slide text."
+  },
+  "skills/nature-image2ppt/scripts/visual_review_evidence.py": {
+    "reason": "Exact Chinese validator/metadata/Unicode input match strings retained. English equivalents and rules remain in the implementation; translation would alter acceptance of Chinese slide text."
+  },
+  "skills/nature-image2ppt/tests/support.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_console_portability.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_manifest_arrows.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_ocr_http.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_page_hints.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_pdf_backend.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_project_metadata.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_quality_contracts.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-image2ppt/tests/test_structure_reconstruction.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-literature-pipeline/references/note-template.md": {
+    "reason": "Legacy classification codes and existing vault paths retained for compatibility. English glossary defines A core argument, B chapter support, C engineering background, D reusable methodology, E temporary/low priority; Chinese filename/tag examples illustrate legacy archive input. New prose/output labels are English."
+  },
+  "skills/nature-literature-pipeline/references/push-format.md": {
+    "reason": "Canonical existing-archive tier identifier A_核心主线 means A, core argument; preserve the identifier while the digest template is English."
+  },
+  "skills/nature-paper-to-patent/references/disclosure/disclosure_builder.md": {
+    "reason": "Explicit original Chinese input compatibility examples for Case title and To be completed, plus a mathematical text-command example meaning and; every retained example has an English explanation."
+  },
+  "skills/nature-paper-to-patent/references/disclosure/iteration_context.md": {
+    "reason": "Legacy revision-log filename retained to recognize existing artifacts, paired with the English default disclosure_revision_log.md."
+  },
+  "skills/nature-paper-to-patent/references/disclosure/prior_art_search.md": {
+    "reason": "Three intentional Chinese CNIPA search queries, meaning knowledge base, retrieval augmentation, and large language model; English glosses preserve search semantics."
+  },
+  "skills/nature-paper-to-patent/references/disclosure/template_reference.md": {
+    "reason": "Chinese formula text-command example means and; it is preserved specifically to explain a renderer failure alongside its English equivalent."
+  },
+  "skills/nature-paper-to-patent/references/draft-schema.md": {
+    "reason": "The canonical_zh schema field intentionally stores a Chinese canonical term (category prototype); its English meaning is explained alongside the example."
+  },
+  "skills/nature-paper-to-patent/scripts/audit_claims.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/disclosure/cnipa_epub_crawler.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/disclosure/cnipa_epub_parse.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/disclosure/md_to_docx.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/disclosure/mermaid_render.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/render_flowchart_svg.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/render_patent_docx.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/scripts/validate_patent_draft.py": {
+    "reason": "Chinese legal-section/parser match strings, CNIPA field labels and font identifiers remain exact for Chinese patent interoperability. English prose, comments, diagnostics and default headings are translated; preserve original fixture/control vocabulary."
+  },
+  "skills/nature-paper-to-patent/tests/test_validation.py": {
+    "reason": "Original Chinese-language test fixture, assertion or Unicode input sample retained to preserve the behavior being tested. Human explanations are English; changing these inputs would remove compatibility coverage."
+  },
+  "skills/nature-paper2ppt/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-paper2ppt/scripts/audit_pptx_quality.py": {
+    "reason": "Chinese regex patterns deliberately detect generic Chinese presentation filler. Public diagnostic labels are English; regexes retain language-specific matching behavior."
+  },
+  "skills/nature-polishing/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-polishing/manifest.yaml": {
+    "reason": "Literal Chinese source filename or typesetting alias retained for metadata/routing compatibility; descriptions and procedures are English."
+  },
+  "skills/nature-polishing/references/latex-layout.md": {
+    "reason": "Bilingual terminology/anchor example: the Chinese terms mean loose and typesetting; English definitions are adjacent. Anchor spelling remains intact."
+  },
+  "skills/nature-proposal-writer/SKILL.md": {
+    "reason": "Existing Chinese source filename retained for compatibility; instructions and output defaults are English."
+  },
+  "skills/nature-proposal-writer/manifest.yaml": {
+    "reason": "Literal Chinese source filename or typesetting alias retained for metadata/routing compatibility; descriptions and procedures are English."
+  },
+  "skills/nature-proposal-writer/scripts/build_proposal_docx.py": {
+    "reason": "The Chinese font-family identifier means SimSun; it is a literal OOXML east-Asian font name and must remain unchanged for compatibility."
+  },
+  "skills/nature-reader/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-reader/scripts/validate_reader_math.py": {
+    "reason": "Chinese field/label match strings retained for validating legacy bilingual readers; their meanings are original/translation/equation explanation. New output prose is English."
+  },
+  "skills/nature-reader/static/core/principles.md": {
+    "reason": "Original Chinese trigger aliases mean Chinese-English parallel text, comparison with original, full translation and translation with interpretation; the complete procedure is English."
+  },
+  "skills/nature-ref-verifier/references/common-patterns.md": {
+    "reason": "Visually similar Chinese name characters are the topic of the verification example; et-al abbreviation is explained in English. Translating the literal glyphs would remove the example."
+  },
+  "skills/nature-response/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-response/references/chinese-author-alignment.md": {
+    "reason": "Original Chinese reviewer-response input examples retained with English diagnoses/actions: we revised, revised per reviewer, added experiments/analyses, the issue is unimportant, no time, reviewer misunderstood, see main text, and we think it sufficient. The guide explains how to replace each with an evidenced response."
+  },
+  "skills/nature-response/references/intake-and-routing.md": {
+    "reason": "Chinese decision labels meaning major revision and minor revision, paired with English equivalents. The actual confirmation question is English."
+  },
+  "skills/nature-reviewer/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-statistics/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-writing/SKILL.md": {
+    "reason": "Chinese trigger synonyms are retained verbatim for multilingual skill selection; complete capability descriptions and operating instructions are English."
+  },
+  "skills/nature-writing/references/chinese-author-workflow.md": {
+    "reason": "Chinese linguistic structures retained as the subject of the guide: repeated possessive modifiers, topic-comment opening about X, and repeated this-paper/we subjects; English rewrite rules explain each."
+  },
+  "skills/nature-writing/static/fragments/language/zh-to-en.md": {
+    "reason": "Chinese writing examples mean significantly improve/clearly improve and first/innovative; English guidance explains baseline and scope requirements."
+  },
+  "skills/nature-figure/assets/figures4papers/THIRD_PARTY_NOTICES.md": {
+    "reason": "Historical upstream notice retained with a dated local correction and the exact current separately licensed figures4papers CC BY-NC4 terms.",
+    "sidecars": [
+      "skills/nature-figure/assets/figures4papers/LICENSE-CC-BY-NC-4.0.txt"
+    ]
+  }
+}

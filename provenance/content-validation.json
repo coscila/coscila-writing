@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-09",
+  "python": "3.13.2",
+  "testEnvironment": "Isolated temporary venv; these helper results do not substitute for deployed environment probes.",
+  "versions": {
+    "pytest": "9.1.1",
+    "requests": "2.34.2",
+    "PyYAML": "6.0.3",
+    "matplotlib": "3.11.1",
+    "Pillow": "12.3.0",
+    "PyMuPDF": "1.28.2",
+    "python-docx": "1.2.0"
+  },
+  "suites": [
+    {
+      "path": "tests/upstream/scientific-writing",
+      "passed": 24,
+      "subtestsPassed": 42
+    },
+    {
+      "path": "tests/upstream/citation-management",
+      "passed": 77,
+      "subtestsPassed": 23
+    },
+    {
+      "path": "tests/upstream/venue-templates",
+      "passed": 29,
+      "subtestsPassed": 21
+    },
+    {
+      "path": "tests/upstream/scientific-visualization",
+      "passed": 21,
+      "subtestsPassed": 9
+    },
+    {
+      "path": "tests/test_audit_*.py",
+      "passed": 79
+    },
+    {
+      "path": "tests/test_content_helpers.py",
+      "passed": 4
+    },
+    {
+      "path": "translations/nature-skills/en/skills/nature-paper-to-patent/tests",
+      "passed": 8
+    }
+  ],
+  "limitations": [
+    "No model-output quality gain is inferred from these deterministic helper tests.",
+    "External provider and optional browser/TeX/R routes require separate deployment receipts.",
+    "Complete catalog/hash/link validation must run after final Nature synchronization."
+  ]
+}

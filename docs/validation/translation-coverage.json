@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "english_asset_sidecars": 4,
+  "error_count": 0,
+  "errors": [],
+  "files": 799,
+  "ok": true,
+  "pin_verification": "git-metadata-and-source-hashes",
+  "preserved_cjk_characters": 5277,
+  "preserved_lines": 524,
+  "source_cjk_characters": 67698,
+  "statuses": {
+    "already-English": 522,
+    "preserved-reason": 110,
+    "translated": 167
+  },
+  "upstream_commit": "7e626a86a0ac8d078be224e0a76aa1327875b0a1"
+}

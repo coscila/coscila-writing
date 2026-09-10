@@ -1,0 +1,43 @@
+{
+  "skill_name": "nature-reader",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Turn this Nature-style PDF into a full original/English parallel reader, not merely an abstract or the first few pages. Pair every body paragraph with Original and English blocks; crop figures/tables and place them near their first substantive mention; retain original and translated captions and clickable source locations for every block.",
+      "expected_output": "A full-paper Markdown reader with paragraph-level Original/English pairs, stable source anchors, cropped figure/table assets, figure cards near first substantive mentions, bilingual captions, and grounded follow-up pointers.",
+      "files": [
+        "/Users/yuanyz/nature-read/s41586-026-10452-4.pdf"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I only have a conference-paper DOI. First produce a readable full-text original/translation Markdown reader. If full text is unavailable, explicitly mark gaps and state what can be confirmed only from abstracts or metadata. Keep Original/English blocks for all available text; do not provide only an abstract page.",
+      "expected_output": "A full-document or draft-mode Markdown reader that clearly separates confirmed content from missing content, keeps block/page navigation, and preserves Original/English alignment for every available block.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "This is a scanned paper. Run OCR, then create a full original/English Markdown reader, preserving correspondence between captions and body text. Mark uncertain recognition as low confidence. Crop figures/tables into assets and place them at the corresponding body locations.",
+      "expected_output": "An OCR-aware full-document Markdown reader with Original/English pairs, uncertainty labels, cropped figure/table assets, nearby bilingual captions, page navigation, and source-linked follow-up support.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Read this searchable PDF with many equations closely. Do not show lines of raw LaTeX in paper.md; render inline and display math. Give every display equation an E identifier, page, original equation number, and source_map record; add an equation index for more than three equations.",
+      "expected_output": "A bilingual full-paper reader whose inline and display equations use renderable Markdown math, whose display equations have stable E IDs and source-map entries, and whose equation index links to each formula without exposing bare LaTeX in prose.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "The equations in this scan cannot be reliably recognized. Do not guess from context: crop each original equation into assets/equations and display it in the body. Label any LaTeX transcription low confidence and state that the original image is authoritative.",
+      "expected_output": "An image-first equation workflow with E IDs, existing equation crop paths, explicit low-confidence transcription labels, no guessed symbols, and source-map linkage for every displayed equation.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "In the full parallel reader, do not translate mathematical expressions or rewrite them in translated paragraphs. Show each display equation once and explain only its meaning in translation. Keep I_0, E_0, w_0 and tau in the same LaTeX and math delimiters as the original; do not turn them into (I_0), (tau) or plain text.",
+      "expected_output": "A bilingual reader with one shared copy of each display equation, unchanged mathematical notation in translated prose, valid $...$/$$...$$ delimiters, no parenthesized pseudo-math, and a strict validator pass.",
+      "files": []
+    }
+  ]
+}

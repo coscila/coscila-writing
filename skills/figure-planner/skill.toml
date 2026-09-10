@@ -1,0 +1,4 @@
+schema_version = 1
+id = "figure-planner"
+primary_environment = "writing-figures"
+aliases = []

@@ -1,0 +1,2 @@
+# Dependencies for the CNIPA publication search helpers; separate from the skill requirements.txt.
+playwright>=1.40.0

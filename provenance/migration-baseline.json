@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "source": "install-ocsl-research-tools/bundled/skills",
+  "skills": {
+    "citation-verifier": "09d1ab2d4c10cb62d24900051e6d1bf0336338a0a99a31caf72a997bdbcddc56",
+    "data-availability": "ae90b83cd8dc90e29c288de92229ff7fe07d4e8f1c128107568125635a15f671",
+    "figure-planner": "4caa3e4a667ab20bb32cf8029f9e1f00e1a7822810c877abd73200c6bc32fd9f",
+    "manuscript-optimizer": "0b6069daf94ff29619cd30fd546fa28f2a902c76d16d0643db4a92af5c0c9a81",
+    "manuscript-review": "6d3655097f1f524e131b4b108e1920bc7927756a311423640da60081b5e1ad7b",
+    "nature-academic-search": "b8df1b63d4b9cb1788b1f59a5f3e743d426ef180f3b586b96da665ac9eb2e976",
+    "nature-citation": "6d861fe380e479be49a0f03139554577ef550d9dd4e9e8fb9c4a64761824169c",
+    "nature-data": "443886ea5e6ee84c3717bc9075cb32024eb8e5db62f16c92d76f486239d1bac3",
+    "nature-figure": "321902d2a76184c34173d9fa46c2944f0350f880a9a001c48b15e6703722e188",
+    "nature-paper2ppt": "ae92a2405cb776e0e8e51719dbe63eae206022748fffe9d842619ed1349aa287",
+    "nature-polishing": "2c2e261d1cc9c49fc0fbbe3a9018ed510b9029f3554624d77c51a86b338056b1",
+    "nature-portfolio-playbook": "55c17ccc88d3090b794997f55095d6f67cb316e3f32331acf02364f9330c5d60",
+    "nature-reader": "8d1935ed45cd2bc5ab362d476167d31f9f856338aab3c98fb9216472289845a5",
+    "nature-response": "acb34f2db869e0bf20b211396190af09fed935c137d76111475196cc104ddc67",
+    "nature-writing": "41c21d52ad54ff347f6a6f87c76747efd9f0714301754dd953ba283fc2343d85",
+    "paper-bootstrap": "9b8ad3122f2e8976a7914a50e0035abe0642ff3744d2f25eefb0bc12c9fc3f61",
+    "paper-workflow": "35b51868b6905416f429028d9571e4975c95ed8f19bf78a5f0825fd3a7659d9f",
+    "rebuttal-response": "5f86c08b5404884a3b3c49b7b4e21a49b75dca28ec0c3a26d07716b4306c18f9",
+    "results-section-revision": "1940ee8a63d1a0e990648a80d0ec70815c3787441e8329dd8a234a6c2e1f4fc6",
+    "scientific-writing": "5fd3db90263d400ba00b44c769af5389540ab1f678fe20af44830d04074d4287",
+    "submission-audit": "e0eb29a3ac40b5e3fe8134531d547a7c5d6d40af0165dcc883e7feae86181a0a",
+    "manuscript-writing-review": "6d3655097f1f524e131b4b108e1920bc7927756a311423640da60081b5e1ad7b"
+  },
+  "notes": "Live deployment retains identical file bytes but broadened executable bits for recorded legacy files. Each of3 roots verified independently.",
+  "executableModeDifferences": [
+    {
+      "skill": "citation-verifier",
+      "path": "scripts/scan_citations.py",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "SKILL.md",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "install.sh",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "references/pubmed-28344011.bib",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "references/pubmed-28344011.nbib",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "references/pubmed-28344011.ris",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "references/ris-bibtex-format.md",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "nature-academic-search",
+      "path": "references/search-strategy.md",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "paper-bootstrap",
+      "path": "scripts/init_paper_layout.py",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    },
+    {
+      "skill": "submission-audit",
+      "path": "scripts/check_figure_refs.py",
+      "archiveExecutableBits": "0o100",
+      "deployedExecutableBits": "0o111",
+      "contentUnchanged": true
+    }
+  ]
+}

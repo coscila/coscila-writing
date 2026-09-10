@@ -1,0 +1,112 @@
+[
+  {
+    "ok": true,
+    "reused": false,
+    "prefix": "/local/science_lab_workspace/writing-state/environment-templates/writing-core/b73d44dbeb93032e16610c0b3b74844730f42da11b921234912b9aad88993ec6/prefix",
+    "schemaVersion": 1,
+    "environmentId": "writing-core",
+    "buildId": "b73d44dbeb93032e16610c0b3b74844730f42da11b921234912b9aad88993ec6",
+    "definitionSha256": "b73d44dbeb93032e16610c0b3b74844730f42da11b921234912b9aad88993ec6",
+    "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+    "artifacts": {
+      "requirements.lock": "be7977666a452a2b1c5c1c0def4f4c4b2d3dcb558c09b165e96f7e126c46ae2d",
+      "wheelhouse": "9fa147161fbe3309586cc2df04339c3ab5b1538313999ce58bc8db39ad641ca0",
+      "prefix": "702cf4aa1ab7efc899861acc10556a72c9a09899161de4f31d83b5f706dc746c"
+    },
+    "additionalRuntimeAvailability": []
+  },
+  {
+    "ok": true,
+    "reused": false,
+    "prefix": "/local/science_lab_workspace/writing-state/environment-templates/writing-documents/d2700baa43697056c20ba9645e75b05d238bc64a8d223e2364abfac14f36e56b/prefix",
+    "schemaVersion": 1,
+    "environmentId": "writing-documents",
+    "buildId": "d2700baa43697056c20ba9645e75b05d238bc64a8d223e2364abfac14f36e56b",
+    "definitionSha256": "d2700baa43697056c20ba9645e75b05d238bc64a8d223e2364abfac14f36e56b",
+    "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+    "artifacts": {
+      "requirements.lock": "ce14755dd2ae791d04c77c20ebedbd005402cc602b6d340130a4af6de612b48b",
+      "wheelhouse": "7135c0a8f93430982b813ea49408ff0273cfb0e2c977f0de2bd20539924a0905",
+      "prefix": "6ed6086b88b6a96471ae39dedf648f49e0cb94da6d9c396f589a431ec197d6cc"
+    },
+    "additionalRuntimeAvailability": [
+      {
+        "command": "pandoc",
+        "available": false
+      },
+      {
+        "command": "pdflatex",
+        "available": false
+      },
+      {
+        "command": "libreoffice",
+        "available": false
+      },
+      {
+        "command": "node",
+        "available": true
+      },
+      {
+        "command": "chromium",
+        "available": false
+      },
+      {
+        "command": "detex",
+        "available": false
+      },
+      {
+        "command": "pdfinfo",
+        "available": false
+      },
+      {
+        "command": "pdffonts",
+        "available": false
+      }
+    ]
+  },
+  {
+    "ok": true,
+    "reused": false,
+    "prefix": "/local/science_lab_workspace/writing-state/environment-templates/writing-mcp/5d016452abc77b81b79f108dfa324104ea4eaebf80f0e60351d09b5b1f45049d/prefix",
+    "schemaVersion": 1,
+    "environmentId": "writing-mcp",
+    "buildId": "5d016452abc77b81b79f108dfa324104ea4eaebf80f0e60351d09b5b1f45049d",
+    "definitionSha256": "5d016452abc77b81b79f108dfa324104ea4eaebf80f0e60351d09b5b1f45049d",
+    "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+    "artifacts": {
+      "requirements.lock": "51b305baeab48ec1810110c77514beda280992db91f2629d89b86acae80710f4",
+      "wheelhouse": "44f708372d6cf2389b8fe92faf504f2893a97442054aa883412e01d0c9419581",
+      "prefix": "621066a9c1819ae4b5c7e18979ee131baeccf1f776d00806a392dfcfbd2966e3"
+    },
+    "additionalRuntimeAvailability": []
+  },
+  {
+    "ok": true,
+    "reused": false,
+    "prefix": "/local/science_lab_workspace/writing-state/environment-templates/writing-figures/cf1cd6021875b46ecc5d6d78f64a36b1187fd1a16b60bec8f1667a05bb6ea0bb/prefix",
+    "schemaVersion": 1,
+    "environmentId": "writing-figures",
+    "buildId": "cf1cd6021875b46ecc5d6d78f64a36b1187fd1a16b60bec8f1667a05bb6ea0bb",
+    "definitionSha256": "cf1cd6021875b46ecc5d6d78f64a36b1187fd1a16b60bec8f1667a05bb6ea0bb",
+    "python": "3.13.13 | packaged by conda-forge | (main, Apr  8 2026, 02:00:33) [GCC 14.3.0]",
+    "artifacts": {
+      "requirements.lock": "54096a56941cddac89233fdf0dfc46994afdc0dabaa364c90ab1d8071f7c493f",
+      "wheelhouse": "e2d0c1d1435e24c23cf75eb876ab472250053d9a5ca7d6e663fdf4462c9194f3",
+      "prefix": "5f5cda28e65a50d3aaa2e645702753ba0666eda542f0f89abb6773e2649a151c"
+    },
+    "additionalRuntimeAvailability": [
+      {
+        "command": "Rscript",
+        "available": true
+      },
+      {
+        "command": "chromium",
+        "available": false
+      },
+      {
+        "command": "pdflatex",
+        "available": false
+      }
+    ]
+  }
+]

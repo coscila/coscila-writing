@@ -1,0 +1,94 @@
+[
+  {
+    "target": "README.md",
+    "english_source": "README_EN.md"
+  },
+  {
+    "target": "docs/nature-paper-card-tutorial.md",
+    "english_source": "docs/nature-paper-card-tutorial_EN.md"
+  },
+  {
+    "target": "docs/open-source-agent-frameworks.md",
+    "english_source": "docs/open-source-agent-frameworks_EN.md"
+  },
+  {
+    "target": "skills/nature-academic-search/README.md",
+    "english_source": "skills/nature-academic-search/README_EN.md"
+  },
+  {
+    "target": "skills/nature-citation/README.md",
+    "english_source": "skills/nature-citation/README_EN.md"
+  },
+  {
+    "target": "skills/nature-data/README.md",
+    "english_source": "skills/nature-data/README_EN.md"
+  },
+  {
+    "target": "skills/nature-downloader/README.md",
+    "english_source": "skills/nature-downloader/README_EN.md"
+  },
+  {
+    "target": "skills/nature-experiment-log/README.md",
+    "english_source": "skills/nature-experiment-log/README_EN.md"
+  },
+  {
+    "target": "skills/nature-figure/README.md",
+    "english_source": "skills/nature-figure/README_EN.md"
+  },
+  {
+    "target": "skills/nature-image2ppt/README.md",
+    "english_source": "skills/nature-image2ppt/README_EN.md"
+  },
+  {
+    "target": "skills/nature-literature-pipeline/README.md",
+    "english_source": "skills/nature-literature-pipeline/README_EN.md"
+  },
+  {
+    "target": "skills/nature-paper-card/README.md",
+    "english_source": "skills/nature-paper-card/README_EN.md"
+  },
+  {
+    "target": "skills/nature-paper-to-patent/README.md",
+    "english_source": "skills/nature-paper-to-patent/README_EN.md"
+  },
+  {
+    "target": "skills/nature-paper2ppt/README.md",
+    "english_source": "skills/nature-paper2ppt/README_EN.md"
+  },
+  {
+    "target": "skills/nature-polishing/README.md",
+    "english_source": "skills/nature-polishing/README_EN.md"
+  },
+  {
+    "target": "skills/nature-proposal-writer/README.md",
+    "english_source": "skills/nature-proposal-writer/README_EN.md"
+  },
+  {
+    "target": "skills/nature-reader/README.md",
+    "english_source": "skills/nature-reader/README_EN.md"
+  },
+  {
+    "target": "skills/nature-ref-verifier/README.md",
+    "english_source": "skills/nature-ref-verifier/README_EN.md"
+  },
+  {
+    "target": "skills/nature-response/README.md",
+    "english_source": "skills/nature-response/README_EN.md"
+  },
+  {
+    "target": "skills/nature-reviewer/README.md",
+    "english_source": "skills/nature-reviewer/README_EN.md"
+  },
+  {
+    "target": "skills/nature-shared/README.md",
+    "english_source": "skills/nature-shared/README_EN.md"
+  },
+  {
+    "target": "skills/nature-statistics/README.md",
+    "english_source": "skills/nature-statistics/README_EN.md"
+  },
+  {
+    "target": "skills/nature-writing/README.md",
+    "english_source": "skills/nature-writing/README_EN.md"
+  }
+]
