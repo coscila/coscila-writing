@@ -1,0 +1,120 @@
+{
+  "mcpAcceptance": {
+    "acceptanceComplete": true,
+    "live": true,
+    "optionalCapabilities": {
+      "elsevierEnabled": false,
+      "pubmedContactConfigured": false
+    },
+    "servers": [
+      {
+        "name": "ocsl_writing_catalog",
+        "source": {
+          "acceptanceComplete": true,
+          "calls": [
+            {
+              "ok": true,
+              "provider": null,
+              "tool": "list_skills"
+            }
+          ],
+          "cleanShutdown": true,
+          "errorPath": true,
+          "initialized": true,
+          "name": "ocsl_writing_catalog",
+          "profile": "public",
+          "schemaHash": "c0f679fe01a06471067b32d295c470b76c3dd595a3f84e483051fa84ae73715b",
+          "schemaMatches": true,
+          "toolCount": 5
+        },
+        "staged": {
+          "acceptanceComplete": true,
+          "calls": [
+            {
+              "ok": true,
+              "provider": null,
+              "tool": "list_skills"
+            }
+          ],
+          "cleanShutdown": true,
+          "errorPath": true,
+          "initialized": true,
+          "name": "ocsl_writing_catalog",
+          "profile": "public",
+          "schemaHash": "c0f679fe01a06471067b32d295c470b76c3dd595a3f84e483051fa84ae73715b",
+          "schemaMatches": true,
+          "toolCount": 5
+        }
+      },
+      {
+        "name": "ocsl_writing_academic_search",
+        "source": {
+          "acceptanceComplete": true,
+          "calls": [
+            {
+              "ok": true,
+              "provider": "crossref",
+              "tool": "search_papers"
+            },
+            {
+              "ok": true,
+              "provider": null,
+              "tool": "get_citation"
+            },
+            {
+              "ok": true,
+              "provider": "arxiv",
+              "tool": "search_papers"
+            }
+          ],
+          "cleanShutdown": true,
+          "errorPath": true,
+          "initialized": true,
+          "name": "ocsl_writing_academic_search",
+          "profile": "public",
+          "schemaHash": "0e4e525f8fee189a574dd2de2951dbf1a34f0cee11953ac92ae1ece540e1475f",
+          "schemaMatches": true,
+          "toolCount": 4
+        },
+        "staged": {
+          "acceptanceComplete": true,
+          "calls": [
+            {
+              "ok": true,
+              "provider": "crossref",
+              "tool": "search_papers"
+            },
+            {
+              "ok": true,
+              "provider": null,
+              "tool": "get_citation"
+            },
+            {
+              "ok": true,
+              "provider": "arxiv",
+              "tool": "search_papers"
+            }
+          ],
+          "cleanShutdown": true,
+          "errorPath": true,
+          "initialized": true,
+          "name": "ocsl_writing_academic_search",
+          "profile": "public",
+          "schemaHash": "0e4e525f8fee189a574dd2de2951dbf1a34f0cee11953ac92ae1ece540e1475f",
+          "schemaMatches": true,
+          "toolCount": 4
+        }
+      }
+    ],
+    "stagedConfigChecked": true
+  },
+  "ok": true,
+  "resourceCopies": 3,
+  "reused": false,
+  "roots": [
+    "/local/science_lab_workspace/cache/claude-config/skills",
+    "/local/science_lab_workspace/cache/claude-home/.claude/skills",
+    "/local/science_lab_workspace/cache/codex-home/skills"
+  ],
+  "skillCopies": 117
+}

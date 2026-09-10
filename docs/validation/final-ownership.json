@@ -1,0 +1,30 @@
+{
+  "ok": true,
+  "skillCopies": 117,
+  "resourceCopies": 3,
+  "roots": [
+    "/local/science_lab_workspace/cache/claude-config/skills",
+    "/local/science_lab_workspace/cache/claude-home/.claude/skills",
+    "/local/science_lab_workspace/cache/codex-home/skills"
+  ],
+  "installed": true,
+  "statePath": "/local/science_lab_workspace/writing-state/integration/install-state.json",
+  "sourceMcpNames": [
+    "ocsl_bio_catalog",
+    "ocsl_review_catalog",
+    "ocsl_scholar",
+    "ocsl_writing_academic_search",
+    "ocsl_writing_catalog",
+    "paper-search-mcp",
+    "rsv-deg-mcp"
+  ],
+  "stagedMcpNames": [
+    "ocsl_bio_catalog",
+    "ocsl_review_catalog",
+    "ocsl_scholar",
+    "ocsl_writing_academic_search",
+    "ocsl_writing_catalog",
+    "paper-search-mcp",
+    "rsv-deg-mcp"
+  ]
+}

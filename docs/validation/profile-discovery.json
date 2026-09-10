@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "checkedAt": "2026-09-10T07:40:09.183Z",
+  "method": "Real deployment Codex provider wrapper, real staged MCP configuration and installed skill trees, temporary synthetic local provider stub; no provider request or user-workspace access.",
+  "stagedConfigSha256": "115b5a77b5aa46fba2685d612bd7b96391c2b1e023924125d1e4e6d7b428b5c4",
+  "catalogSha256": "5c68177a21847f229980ce23e0da37737974130a1fb90474423b25b9a1f88546",
+  "skills": [
+    {
+      "name": "citation-management",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "citation-verifier",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "conference-paper-writing",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "data-availability",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "draft-marker-discipline",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "figure-planner",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "manuscript-optimizer",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "manuscript-review",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "manuscript-writing-review",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-academic-search",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-citation",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-data",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-downloader",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-experiment-log",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-figure",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-image2ppt",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-literature-pipeline",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-paper-card",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-paper-to-patent",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-paper2ppt",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-polishing",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-portfolio-playbook",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-proposal-writer",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "researchwrite",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-reader",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-ref-verifier",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-response",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-reviewer",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-statistics",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-writing",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "paper-bootstrap",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "paper-workflow",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "rebuttal-response",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "results-section-revision",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "review-article-architecture",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "scientific-visualization",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "scientific-writing",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "submission-audit",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "venue-templates",
+      "kind": "skill",
+      "present": true,
+      "sourceMatches": true
+    },
+    {
+      "name": "nature-shared",
+      "kind": "resource",
+      "present": true,
+      "sourceMatches": true
+    }
+  ],
+  "skillNames": 39,
+  "sharedResources": 1,
+  "mcpNames": [
+    "ocsl_bio_catalog",
+    "ocsl_review_catalog",
+    "ocsl_scholar",
+    "ocsl_web",
+    "ocsl_writing_academic_search",
+    "ocsl_writing_catalog",
+    "paper_search_mcp",
+    "rsv_deg_mcp"
+  ],
+  "ownedMcpPresent": true,
+  "invocationProfileCleaned": true,
+  "externalCalls": false,
+  "realProviderCredentialsUsed": false,
+  "ok": true
+}

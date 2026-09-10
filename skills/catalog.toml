@@ -1,0 +1,449 @@
+schema_version = 1
+
+[[resource]]
+id = "nature-shared"
+path = "skills/nature-shared"
+
+[[skill]]
+id = "citation-management"
+path = "skills/citation-management"
+name = "citation-management"
+description = "Comprehensive citation management for academic research. Search OpenAlex, PubMed, and Google Scholar for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find papers, verify citation information, convert DOIs to BibTeX, or ensure reference accuracy in scientific writing."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "kdense"
+license = "MIT"
+additional_runtimes = ["scholarly (optional Google Scholar scraper)"]
+
+[[skill]]
+id = "citation-verifier"
+path = "skills/citation-verifier"
+name = "citation-verifier"
+description = "Use when checking manuscript citations, bibliography hygiene, DOI or PMID completeness, placeholder references, or BibTeX consistency before submission or revision."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "conference-paper-writing"
+path = "skills/conference-paper-writing"
+name = "conference-paper-writing"
+description = "Draft or revise ML and AI conference papers from research code, measured results and author notes, including argument structure, related work, anonymization and camera-ready preparation. Use for NeurIPS, ICML, ICLR, ACL, AAAI or COLM papers; use scientific-writing for journal manuscripts."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "orchestra"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "data-availability"
+path = "skills/data-availability"
+name = "data-availability"
+description = "Use when drafting, auditing, or revising Data Availability statements, repository plans, accession-number placement, source-data coverage, or restricted-data wording for journal submission or resubmission."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "draft-marker-discipline"
+path = "skills/draft-marker-discipline"
+name = "draft-marker-discipline"
+description = "Use when a manuscript is being drafted across many sessions and needs auditable open-question tracking: in-source draft markers with distinct jobs, triage of open items by what would actually resolve each one, word counts that exclude draft apparatus, safe archival of superseded material, and assertion-guarded scripted edits. Load before doing a batch pass over TODO markers or before quoting a manuscript's length."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-paper-skills-current"
+license = "MIT"
+additional_runtimes = ["detex"]
+
+[[skill]]
+id = "figure-planner"
+path = "skills/figure-planner"
+name = "figure-planner"
+description = "Use when designing, restructuring, or auditing manuscript figures and you need to define one main claim per figure, assign panel roles, align legends with the text, or decide what belongs in main figures versus supplement."
+primary_environment = "writing-figures"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT AND Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "manuscript-optimizer"
+path = "skills/manuscript-optimizer"
+name = "manuscript-optimizer"
+description = "Use when reviewing or revising an academic manuscript whose central claim, evidence chain, figures, terminology, and prose may have drifted out of sync before submission or resubmission."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "manuscript-review"
+path = "skills/manuscript-review"
+name = "manuscript-writing-review"
+description = "Use this skill when asked to review, edit, or improve the writing quality of a scientific or engineering manuscript. Triggers include: \"review my writing,\" \"check my manuscript,\" \"improve clarity,\" \"clean up the prose,\" \"edit for journal submission,\" \"writing review,\" or any request to evaluate sentence-level quality, eliminate clutter, fix passive voice, or enforce keyword consistency in a research paper draft. Also triggers when asked to prepare a manuscript for submission to a specific journal. Do NOT use for content/technical review of methods or results, statistical analysis, or citation formatting."
+primary_environment = "writing-core"
+aliases = ["manuscript-writing-review"]
+enabled = true
+source = "sciwrite"
+license = "CC-BY-4.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-academic-search"
+path = "skills/nature-academic-search"
+name = "nature-academic-search"
+description = "Multi-source literature search, citation verification, strict independent other-citation audits, article-level citation metric tables, influential citer profiling with citation-context extraction, MeSH search strategy, citation file management (.nbib/.ris/.bib conversion), and reference management (BibTeX, related articles, ID conversion) via MCP tools (PubMed, CrossRef, arXiv, Scopus, ScienceDirect). Use for coordinated literature workflows beyond one MCP call, including 文献检索、 查文献、找文献、文献综述检索、查论文、引文核对、参考文献管理、文献去重、 严格他引、他引判定、排除自引、谁引用了我的文章、引用我的文章的人有没有大牛、 院士引用、校长引用、院长引用、杰青引用、长江学者引用、Fellow引用、文章引用表、 指定文章引用数、严格他引数、整理成表格."
+primary_environment = "writing-mcp"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = ["provider-specific credentials for Elsevier tools"]
+
+[[skill]]
+id = "nature-citation"
+path = "skills/nature-citation"
+name = "nature-citation"
+description = "Add strict Nature/CNS citations to manuscript text by splitting long passages into citable segments, searching only accepted flagship and subjournal titles from Nature Portfolio, the AAAS Science family, and Cell Press, filtering by publication time range, and exporting one reference-manager-ready output by default. Use this skill whenever the user asks to input text and automatically get references, add citations to a paragraph/manuscript, find Nature-series or CNS support for statements, create text-to-reference correspondence, \"分段引用\", \"自动给出引用\", \"Nature系列引用\", \"CNS及子刊\", \"支撑文献\", \"补引用\", \"找引用\", or export EndNote/RIS/ENW/Zotero RDF. Also trigger on general academic-writing citation needs even without the word \"Nature\", such as adding references while writing a paper, finding sources/literature for a claim, building a reference list, citation/referencing for academic writing, and Chinese phrasings like 学术写作引用、写论文加引用、写paper找文献、加参考文献、配文献、引用文献、文献支撑."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-data"
+path = "skills/nature-data"
+name = "nature-data"
+description = "Prepare, audit, or revise Nature-ready Data Availability statements, data repository plans, dataset citations, and FAIR metadata checklists for manuscripts. Use when the user asks about Nature data availability, research data sharing, repository selection, accession numbers, restricted or sensitive data, source data, supplementary datasets, DataCite-style dataset references, FAIR metadata for academic publication, or Chinese-to-English data availability wording for Chinese-speaking authors preparing Nature-family submissions. Also trigger on general academic-writing data needs even without the word \"Nature\", such as writing a data availability statement for any journal, code/data sharing sections, repository selection while writing a paper, and Chinese phrasings like 数据可用性声明、数据可用性、 数据共享、代码可用性、学术写作数据声明、写数据声明、数据存放、数据仓库选择."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-downloader"
+path = "skills/nature-downloader"
+name = "nature-downloader"
+description = "Use when a user needs lawful academic full text, CNKI institutional access, English OA retrieval, publisher API access, institutional browser fallback, or supporting information downloads."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-experiment-log"
+path = "skills/nature-experiment-log"
+name = "nature-experiment-log"
+description = "Standardize experiment logs from uploaded or local images, voice recordings and text; produce Markdown with YAML frontmatter, with optional Feishu CLI and Obsidian integration."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0 AND MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-figure"
+path = "skills/nature-figure"
+name = "nature-figure"
+description = "Create, revise, audit, and export submission-grade scientific figures for Nature-family and other high-impact venues in Python (matplotlib/seaborn) or R (ggplot2/patchwork/ComplexHeatmap), including multi-panel plots, figures4papers-style work, and journal-ready SVG/PDF/TIFF outputs. Use for paper or scientific plots, manuscript data visualization, 论文配图、学术写作配图、科研绘图、科研作图、画图、作图、出图、论文图表、可视化. Define the conclusion, evidence logic, data integrity, template compatibility, export needs, and reviewer risks before plotting; honor or persist the Python/R backend choice. Also use the separate OpenRouter GPT Image 2 route for explicit AI-generated graphical abstracts, mechanism diagrams, concept schematics, 论文示意图、机制示意图、图形摘要; this route skips backend choice and treats outputs as drafts. Do not use for interactive dashboards, statistics-only analysis, data cleaning, literature review, code debugging, pure photo editing, or Illustrator/Figma-first infographics without manuscript-figure intent."
+primary_environment = "writing-figures"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0 AND CC-BY-NC-4.0"
+additional_runtimes = ["Rscript (R backend)", "authorized image provider (optional generation)"]
+
+[[skill]]
+id = "nature-image2ppt"
+path = "skills/nature-image2ppt"
+name = "nature-image2ppt"
+description = "Convert slide images or screenshots into editable PowerPoint content while preserving layout, text, equations and visual relationships, with visible limitations for elements that cannot be reconstructed."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = ["node", "chromium (browser rendering workflow)"]
+
+[[skill]]
+id = "nature-literature-pipeline"
+path = "skills/nature-literature-pipeline"
+name = "nature-literature-pipeline"
+description = "Complete automated literature discovery pipeline: multi-source search → six-dimension scoring → fine reading → formatted delivery → archival.\nCombines a configurable engine with daily cron-driven application layer. Works with Feishu, Telegram, or any messaging platform."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0 AND MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-paper-card"
+path = "skills/nature-paper-card"
+name = "nature-paper-card"
+description = "Build a source-grounded deep-reading Paper Card for one scientific paper, preprint, PDF, DOI, arXiv page, publisher article, or pasted paper text. Use when the user asks for a Paper Card, deep-reading literature card, single-paper deep analysis, module-by-module analysis, experiment-to-claim evidence chain, conclusion-boundary audit, critical analysis, knowledge connections, or candidate research ideas. Produce the fixed Sections 01-16 covering bibliographic position, research question, background route, pain point, core insight, method and module logic, essential formulas, experiment-to-claim evidence, conclusion boundaries, author-stated limitations, critical analysis, learned knowledge, knowledge connections, and testable research ideas. Do not use for full-paper bilingual translation, formal peer-review reports, batch literature monitoring, academic-English collection, comprehension quizzes, or public-article writing."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-paper-to-patent"
+path = "skills/nature-paper-to-patent"
+name = "nature-paper-to-patent"
+description = "Convert scientific papers, theses, technical reports, source code, figures, inventor notes, or research manuscripts into evidence-grounded Chinese invention patent drafts and attorney-facing technical disclosure materials. Use when an AI agent must mine patent points, draft or revise a Chinese technical disclosure (technical disclosure), run prior-art comparison, convert Office project materials, map every claimed feature to source evidence, preserve core formulas as editable Office Math, generate claim-aligned flowcharts and methodology figures, compare a paper with an existing patent, audit support and consistency, or deliver Chinese DOCX patent/disclosure files."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-paper2ppt"
+path = "skills/nature-paper2ppt"
+name = "nature-paper2ppt"
+description = "Create an actual PPTX research presentation from a paper, PDF, figures or reading notes, preserving the argument and source attribution. Default to English slides and speaker notes; support explicitly requested Chinese or bilingual presentations."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = ["node (optional alternative backend)"]
+
+[[skill]]
+id = "nature-polishing"
+path = "skills/nature-polishing"
+name = "nature-polishing"
+description = "Polish, restructure, or translate academic prose into concise Nature-leaning English while preserving facts, evidence boundaries, terminology, and citation intent. Use for manuscript paragraphs, abstracts, introductions, Results, discussions, conclusions, titles, Methods, Chinese drafts, proofreading, language editing, and general academic or scientific writing. Also use to shorten bloated Results, allocate evidence across main text, captions, and Supplementary Information, prevent reviewer-driven revision accretion, reduce repeated statistics or claims, and apply paragraph-necessity checks. Covers LaTeX layout or typesetting fixes such as sparse pages, stranded headings, oversized or split figures, float errors, multi-panel arrangement, and sparse Supplementary Information via references/latex-layout.md. Trigger on 学术写作、科研写作、论文润色、SCI写作、英文论文润色、语言润色、润色、改写、学术英语、排版."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-portfolio-playbook"
+path = "skills/nature-portfolio-playbook"
+name = "nature-portfolio-playbook"
+description = "Use when choosing among Nature, Nature Methods, or Nature Biotechnology, or when preparing a Nature Portfolio life-science manuscript for venue fit, article-type framing, and policy-aware pre-submission checks."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-proposal-writer"
+path = "skills/nature-proposal-writer"
+name = "researchwrite"
+description = "Compose, revise or extend evidence-grounded research proposals and research plans using claim records, argument maps and section contracts. Supports the researchwrite compatibility trigger."
+primary_environment = "writing-documents"
+aliases = ["researchwrite"]
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0 AND MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-reader"
+path = "skills/nature-reader"
+name = "nature-reader"
+description = "Read or translate complete scientific papers with source anchors and figures, tables and equations preserved near the relevant prose. Default to an English reader; provide bilingual or Chinese output when requested."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = ["browser rendering (optional)"]
+
+[[skill]]
+id = "nature-ref-verifier"
+path = "skills/nature-ref-verifier"
+name = "nature-ref-verifier"
+description = "Cross-verify scholarly references individually across multiple sources, comparing authors, titles, years, volumes, issues, and pages. Flag volume-year/DOI-year conflicts, unusual author ordering, and page discrepancies in a structured report. Process entire manuscript or proposal bibliographies or individual references, with support for synchronizing corrections to Zotero."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-response"
+path = "skills/nature-response"
+name = "nature-response"
+description = "Draft, audit, or revise Nature-style revision correspondence packages: point-by-point reviewer-separated response letters, rebuttal letters, revision cover letters, LaTeX cover/response templates, and red-marked revised-manuscript excerpts. Keep mutually blind reviewers isolated so no reviewer-facing response reveals another reviewer's comments, numbering, recommendation, or author response. Prevent reviewer-driven manuscript accretion by preferring replacement, compression, or SI relocation over appending non-central defense prose. Use for reviewer comments, editor decision letters, pasted editorial emails, response drafts, cover letters, response to reviewers, rebuttal, 修回信, 返修邮件, 编辑邮件, 返修 cover letter, 审稿意见回复, 逐点回复, 大修回复, 小修回复, 回复审稿人, 修改稿回复, 写rebuttal, 回应审稿意见, 标红修改, or LaTeX 模板."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-reviewer"
+path = "skills/nature-reviewer"
+name = "nature-reviewer"
+description = "Perform author-facing manuscript triage and revision guidance. Route independent evidentiary, reporting and claim-to-source audits to the review companion."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-statistics"
+path = "skills/nature-statistics"
+name = "nature-statistics"
+description = "Improve statistical reporting in manuscripts from supplied analyses and measured results. Route new biological computation to the bio companion and independent validity audits to the review companion."
+primary_environment = "writing-figures"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "nature-writing"
+path = "skills/nature-writing"
+name = "nature-writing"
+description = "Draft, restructure, or plan Nature-style manuscript sections and initial-submission materials from author-provided claims, results, figures, notes, or Chinese drafts. Use for abstracts, introductions, related work, methods, Results or experiments, discussions, conclusions, titles, full manuscript arguments, and first-submission packages such as cover letters, title pages, highlights, author contributions, availability or declaration text, and reviewer suggestions. Also use to classify Results evidence, decide what belongs in main text, captions, Methods or source data, or Supplementary Information, compress Results to the shortest sufficient evidence chain, prevent revision accretion, and audit paragraph necessity or claim repetition. Trigger on drafting a paper or section, structuring a manuscript, academic writing, first submission, 投稿材料、首次投稿、投稿信、标题页、亮点、作者贡献、数据可用性声明、推荐审稿人."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-skills"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "paper-bootstrap"
+path = "skills/paper-bootstrap"
+name = "paper-bootstrap"
+description = "Use when starting a new manuscript project or cleaning up an existing paper directory and you need a standard structure, active source files, project memory, and venue defaults before deeper writing begins."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "paper-workflow"
+path = "skills/paper-workflow"
+name = "paper-workflow"
+description = "Use when deciding which paper-related skill to use or how to sequence manuscript work from project setup through submission and rebuttal."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "rebuttal-response"
+path = "skills/rebuttal-response"
+name = "rebuttal-response"
+description = "Use when responding to journal or conference reviewer comments and you need a structured author response, aligned manuscript edits, and clear decisions about when to clarify, add evidence, concede, or respectfully disagree."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "results-section-revision"
+path = "skills/results-section-revision"
+name = "results-section-revision"
+description = "Use when revising a scientific manuscript Results section whose figures, evidence, and main claims are mostly fixed, but subsection flow, paragraph openings, reader guidance, and argumentative progression still feel abrupt, repetitive, or figure-by-figure."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "review-article-architecture"
+path = "skills/review-article-architecture"
+name = "review-article-architecture"
+description = "Use when writing, restructuring, or auditing a Review, survey, or Perspective rather than a research article, especially a commissioned one written across many sessions. Covers the governing plan document, drift detection, single-definition thesis and field judgements, section-owns-figure allocation, display-item budgets, four-state status markers, and authorship-blank discipline. For research articles with Results and Methods, use manuscript-optimizer instead."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-current"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "scientific-visualization"
+path = "skills/scientific-visualization"
+name = "scientific-visualization"
+description = "Create and audit truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use for figure design, multi-panel layouts, uncertainty and missing-data displays, color/contrast review, image metadata validation, and journal export planning."
+primary_environment = "writing-figures"
+aliases = []
+enabled = true
+source = "kdense"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "scientific-writing"
+path = "skills/scientific-writing"
+name = "scientific-writing"
+description = "Draft, revise, and audit scientific manuscripts or reports with explicit evidence provenance, reporting-guideline coverage, authorship accountability, confidentiality controls, and local consistency checks. Use for manuscript sections, references, declarations, tables, figures, or submission preparation when scientific accuracy and traceability matter."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "kdense"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "submission-audit"
+path = "skills/submission-audit"
+name = "submission-audit"
+description = "Use when a manuscript is close to submission or resubmission and you need a preflight audit for claim support, figure-panel coverage, legend sync, methods references, terminology stability, and venue-facing risks."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "nature-paper-skills-legacy"
+license = "MIT"
+additional_runtimes = []
+
+[[skill]]
+id = "venue-templates"
+path = "skills/venue-templates"
+name = "venue-templates"
+description = "Prepare journal manuscripts, conference papers, research posters, and grant documents using venue-specific formatting guidance and bundled LaTeX scaffolds. Use when selecting an official template, checking current page or anonymity rules, adapting academic writing to a venue, or inspecting a submission PDF."
+primary_environment = "writing-documents"
+aliases = []
+enabled = true
+source = "kdense"
+license = "MIT AND LPPL-1.3c-or-later"
+additional_runtimes = ["pdflatex", "pdfinfo", "pdffonts"]

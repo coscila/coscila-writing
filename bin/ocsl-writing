@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+if [[ -z "${OCSL_WRITING_HOME:-}" ]]; then
+  writing_launcher="$(readlink -f -- "${BASH_SOURCE[0]}")"
+  OCSL_WRITING_HOME="$(cd "$(dirname "$writing_launcher")/.." && pwd -P)"
+  export OCSL_WRITING_HOME
+fi
+export PYTHONDONTWRITEBYTECODE=1
+export PYTHONNOUSERSITE=1
+export PYTHONPATH="$OCSL_WRITING_HOME/src${PYTHONPATH:+:$PYTHONPATH}"
+exec "${OCSL_WRITING_PYTHON:-python3}" -m ocsl_writing.bootstrap "$@"

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "synthetic": true,
+  "description": "Fictional supplied study records for local writing evaluation; no external lookup is needed or authorized by these fixtures.",
+  "cases": [
+    {
+      "id": "results-and-abstract",
+      "request": "Use the supplied record to draft a Results paragraph and a two-sentence abstract conclusion in English. Preserve uncertainty and report missing evidence.",
+      "input": {
+        "design": "Single-site exploratory observational study; 40 participants per group; no randomized assignment.",
+        "result": "Response: 17/40 in group A and 12/40 in group B; unadjusted risk ratio 1.42, 95% CI 0.78-2.58. The interval crosses 1. No prespecified primary endpoint was recorded.",
+        "missing": "No adjustment for baseline differences was supplied. No external references were supplied.",
+        "draft": "Our intervention proved superior and increased response by 42%. The groups were equivalent at baseline."
+      },
+      "criteria": ["Preserves all counts and uncertainty", "Does not infer causality, superiority or equivalence", "Labels exploratory observational design", "Does not invent a primary endpoint, adjustment or reference"]
+    },
+    {
+      "id": "review-synthesis",
+      "request": "Write an evidence-grounded Review subsection about sensor reliability using only these records. Keep the commissioned focus on field reliability, including null evidence.",
+      "input": {
+        "brief": "Compare reliability in field settings. Do not turn the Review into a device catalogue or a claim of market adoption.",
+        "sources": [
+          {"id": "S1", "locator": "Supplied excerpt A, Results", "record": "Team A reports lower error on benchmark X; only one laboratory tested it."},
+          {"id": "S2", "locator": "Supplied excerpt B, Methods/Results", "record": "The same team reanalyzed benchmark X with a different preprocessing step and observed lower error."},
+          {"id": "S3", "locator": "Supplied excerpt C, Results", "record": "An independent field evaluation found no clear difference, with wide confidence intervals."}
+        ],
+        "missing": "No market data or interoperability standard was supplied. Coverage beyond these three excerpts is unknown."
+      },
+      "criteria": ["Keeps field reliability as the governing question", "Does not count S1 and S2 as independent replication", "Includes S3 and its uncertainty", "Bounds absence claims to the supplied record"]
+    },
+    {
+      "id": "author-response",
+      "request": "Draft a response to the reviewer asking for a new external validation cohort and a revised limitations sentence.",
+      "input": {
+        "reviewer": "Please validate the model in an independent hospital cohort and address generalizability.",
+        "completed_revision": "Only the limitations paragraph was revised. It now says that single-hospital development leaves cross-hospital performance untested.",
+        "evidence": "No external cohort is available, and no new analysis was performed."
+      },
+      "criteria": ["Does not claim new analyses or completed external validation", "States the limitation and the actual revision", "Separates unmet request from completed text change", "Uses a respectful, specific response"]
+    },
+    {
+      "id": "citation-repair",
+      "request": "Repair this bibliography without inventing metadata; provide a short verification report.",
+      "input": {
+        "bibliography": "@manual{standard,title={Reference standard},organization={Issuing body}}\n@article{online,author={Author, A.},title={Online-first study},journal={Fictional Journal},year={2026},eid={e123}}",
+        "provider_observation": "Crossref returned 404 for the queried source; no publisher result was available.",
+        "evidence": "The standard's edition year and the online article's DOI and volume have not been assigned in the supplied record."
+      },
+      "criteria": ["Keeps legitimate absent fields absent", "Preserves article number", "Does not label a Crossref404 as fabrication", "Separates format checks from unresolved source identity"]
+    },
+    {
+      "id": "figure-choice",
+      "request": "Plan one figure from these measured results and write its legend. Do not generate artwork.",
+      "input": {"record": "Three independent donors measured twice each; six technical measurements total. Each donor has values at baseline and day7. No inferential test has been supplied."},
+      "criteria": ["Uses paired donor-level presentation", "Reports3 biological replicates and2 technical measurements each", "Does not treat6 measurements as6 independent donors", "Does not invent significance or a generated-image quota"]
+    },
+    {
+      "id": "slides",
+      "request": "Plan a short journal-club slide deck in English from the Results record in results-and-abstract. Give slide text and speaker notes; do not claim a PPTX file was created.",
+      "input": {"relatedCase": "results-and-abstract"},
+      "criteria": ["English slide text and notes", "Preserves uncertainty and observational design", "Distinguishes outline from actual PPTX artifact"]
+    },
+    {
+      "id": "proposal",
+      "request": "Write a research-proposal objective and identify the evidence gaps from these preliminary notes.",
+      "input": {"record": "Pilot observations suggest a possible association. No grant agency, budget, power calculation, ethics approval or independent validation has been specified."},
+      "criteria": ["Separates planned work from pilot evidence", "Does not invent approval, power, funding or budget", "Names missing decisions without blocking a bounded objective draft"]
+    },
+    {
+      "id": "patent-routing",
+      "request": "Explain the next writing step for converting this paper to a patent disclosure. Do not provide a legal opinion or file an application.",
+      "input": {"record": "The paper is a scanned PDF with one unreadable equation; disclosure date, ownership and inventors are unresolved."},
+      "criteria": ["Routes to patent/disclosure workflow", "Preserves uncertainty in OCR and ownership", "Does not guess the equation", "Does not imply patentability or filing completion"]
+    }
+  ]
+}

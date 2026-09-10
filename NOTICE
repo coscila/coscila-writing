@@ -1,0 +1,31 @@
+OC Science Lab Writing
+Copyright 2026 Philipp Flotho
+
+Original package code and local adaptations are licensed under Apache License 2.0.
+This distribution includes separately licensed third-party materials. The root
+Apache license does not replace their licenses or remove their restrictions.
+
+Nature Skills: Yuan1z0825/nature-skills, pinned unmodified Git submodule,
+with a complete English translation overlay and adapted deployment copies.
+Apache-2.0 and retained component-specific notices apply. Original attribution
+and upstream NOTICE files are preserved in the submodule and English overlay.
+
+Nature-Paper-Skills: Boom5426/Nature-Paper-Skills, MIT and separately identified
+Apache-2.0 Nature-derived figure auditing helpers. Copyright notices and
+attribution records are retained under licenses/ and within installed skills.
+
+K-Dense scientific-agent-skills: Copyright (c) 2025 K-Dense Inc., MIT.
+Orchestra Research AI Research Skills: MIT; original copyright notice retained.
+sciwrite: Copyright (c) 2026 Lorena A. Barba, CC BY 4.0.
+Elsevier venue templates: embedded LPPL notices and LPPL 1.3c text retained.
+
+figures4papers: Yuan1z0825/figures4papers, CC BY-NC 4.0, upstream commit
+3c181f85e82c6f24948fcaaf3be6696102b41d8d. Its noncommercial condition applies
+to the included corpus and reused derivatives. The source repository's older
+August 2026 notice predates the September 2026 license grant; the translation
+records preserve that history and identify the newer license separately.
+
+English translations, runtime routing, integration changes and other local
+modifications are documented in UPSTREAM.md files, translation manifests and
+provenance locks. This package is not endorsed by these upstream authors.
+See docs/third-party-content.md and licenses/ for component terms.

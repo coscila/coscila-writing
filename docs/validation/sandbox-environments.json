@@ -1,0 +1,37 @@
+{
+  "ok": true,
+  "network": "unshared",
+  "sourceReadOnly": true,
+  "templatesReadOnly": true,
+  "basePythonReadOnly": true,
+  "hostPythonHidden": true,
+  "operatorIntegrationHidden": true,
+  "chatWritable": true,
+  "environments": [
+    {
+      "environment": "writing-core",
+      "offlineEnsure": true,
+      "imports": true,
+      "verified": true
+    },
+    {
+      "environment": "writing-documents",
+      "offlineEnsure": true,
+      "imports": true,
+      "verified": true
+    },
+    {
+      "environment": "writing-figures",
+      "offlineEnsure": true,
+      "imports": true,
+      "verified": true
+    },
+    {
+      "environment": "writing-mcp",
+      "offlineEnsure": true,
+      "imports": true,
+      "verified": true
+    }
+  ],
+  "scope": "Actual Bubblewrap execution with declared writing read-only roots and synthetic chat; separate provider-profile check covers discovery."
+}

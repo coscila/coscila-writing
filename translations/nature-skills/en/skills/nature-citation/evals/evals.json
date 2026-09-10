@@ -1,0 +1,29 @@
+{
+  "skill_name": "nature-citation",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Automatically segment this text and suggest Nature/CNS-family supporting references, exporting Zotero RDF and an HTML visualization: Tumor-associated macrophages promote immune evasion by suppressing cytotoxic T cell activity. Single-cell RNA sequencing reveals cellular heterogeneity in pancreatic cancer.",
+      "expected_output": "Segments the text, maps each segment to citation candidates, exports references.rdf, and provides an HTML visualization that can download selected references as ENW, RIS, or Zotero RDF.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Search Nature Portfolio only. Segment this paragraph by length and map each text segment to citations for insertion into a manuscript: single-cell RNA sequencing reveals cellular heterogeneity in pancreatic cancer. Spatial transcriptomics further preserves tissue context for interpreting tumor microenvironments.",
+      "expected_output": "Restricts scope to Nature Portfolio-style journals and produces a segment-reference correspondence table.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Find flagship Nature/Science/Cell references for: CRISPR screens can identify genetic dependencies in cancer cells. Export RIS for EndNote.",
+      "expected_output": "Restricts to Nature, Science, and Cell only, treats the claim as a segment, and exports RIS without fabricating missing metadata.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Create a Nature Portfolio citation export where the user can filter by year, select references, and choose ENW, RIS or Zotero RDF downloads.",
+      "expected_output": "Produces the citation browser HTML with year filters, selectable references, and downloadable ENW/RIS/Zotero RDF exports from the same page.",
+      "files": []
+    }
+  ]
+}

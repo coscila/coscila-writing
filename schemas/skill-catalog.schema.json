@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OC Science Lab writing skill catalog",
+  "type": "object",
+  "required": ["schema_version", "skill"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "resource": {"type": "array", "items": {"type": "object", "required": ["id", "path"], "properties": {"id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"}, "path": {"type": "string", "pattern": "^skills/"}}}},
+    "skill": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "path", "name", "description", "primary_environment", "aliases", "enabled", "source", "license"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+          "path": {"type": "string", "pattern": "^skills/"},
+          "name": {"type": "string", "minLength": 1},
+          "description": {"type": "string", "minLength": 1},
+          "primary_environment": {"enum": ["writing-core", "writing-documents", "writing-figures", "writing-mcp"]},
+          "aliases": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"}},
+          "enabled": {"type": "boolean"},
+          "source": {"type": "string", "minLength": 1},
+          "license": {"type": "string", "minLength": 1},
+          "additional_runtimes": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

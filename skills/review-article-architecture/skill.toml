@@ -1,0 +1,4 @@
+schema_version = 1
+id = "review-article-architecture"
+primary_environment = "writing-core"
+aliases = []

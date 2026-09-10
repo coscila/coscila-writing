@@ -1,0 +1,202 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-09-09",
+  "files": [
+    {
+      "path": "sources/legacy-deployment/citation-verifier/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/citation-verifier/SKILL.md",
+      "sha256": "e7407655744df8c23dc25d7adc65a24f0cfbbb21857e5a7d54e08e7d2b9fe593",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/citation-verifier/scripts/scan_citations.py",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/citation-verifier/scripts/scan_citations.py",
+      "sha256": "f1e780917f193a2a0a77f41dd1bb3f5480616103e473361647f4beb1ae76e6bb",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/data-availability/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/data-availability/SKILL.md",
+      "sha256": "06d6e74c144b01b302b33a5b50e88c3f57d73cb53ef30002fe4b26efe1494be9",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/data-availability/references/repository-routing.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/data-availability/references/repository-routing.md",
+      "sha256": "c490926c7c3c0d0247022d802fa32f9e16b719b3d0a4730cb017ac5afebb87de",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/data-availability/references/source-data-checks.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/data-availability/references/source-data-checks.md",
+      "sha256": "e44cc2cb3a3ef091363309c32964918bab0b64283bafeef1c226e36485ba89a7",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/data-availability/references/statement-patterns.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/data-availability/references/statement-patterns.md",
+      "sha256": "2124d92ff2c72ced5ea3847838ddcbd43a5773f8790b78ce52568502fa1019a0",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/figure-planner/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/figure-planner/SKILL.md",
+      "sha256": "f8d20fb42d263bbca1ec046483b9f5185978ca3b062dc465c491f924017108d5",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/manuscript-optimizer/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/manuscript-optimizer/SKILL.md",
+      "sha256": "e26220433bfa504e9880d01118eeb0f16b9b808b672b112f49c4fd00bd877004",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/manuscript-review/HOW-TO-USE.md",
+      "source": "sciwrite",
+      "originalPath": "HOW-TO-USE.md",
+      "sha256": "558c4b58510b848fef917858f157f3e7b92b452b61477de8e652021798fc04cd",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/manuscript-review/LICENSE",
+      "source": "sciwrite",
+      "originalPath": "LICENSE",
+      "sha256": "b8d69cfff1a21f9e31cb00110dd7161bde96c25083780aad666a9ab687df544a",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/manuscript-review/README.md",
+      "source": "sciwrite",
+      "originalPath": "README.md",
+      "sha256": "e074877ef8d0fd7cceb9d8fe7df6cd2e17189c47ac402d329a51ab2e99b7cba5",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/manuscript-review/SKILL.md",
+      "source": "sciwrite",
+      "originalPath": "SKILL.md",
+      "sha256": "8000635f38e1b977d156fd1b416aa8d493db4a60ab7e083433653d60a0467e2a",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/nature-portfolio-playbook/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/venue/nature-portfolio-playbook/SKILL.md",
+      "sha256": "8ae3aedc6cf02134ec503bf20bc47b4766be88238a6b6d98d8ab46a2c1c2285b",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/nature-portfolio-playbook/SOURCES.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/venue/nature-portfolio-playbook/SOURCES.md",
+      "sha256": "0b920a084d622809a7badba9a4cefb9adf0a253917e394a8baebee5b51e3e41d",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/paper-bootstrap/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/paper-bootstrap/SKILL.md",
+      "sha256": "93777e811e5cebc8d27f3b95aa83d7e8134be9ee2323c4ace7e01f7061c4a07e",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/paper-bootstrap/scripts/init_paper_layout.py",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/paper-bootstrap/scripts/init_paper_layout.py",
+      "sha256": "607d56c4b7e7991e6608c3dfd02e691afedbe137d78e43672f15ef45f7499534",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/paper-workflow/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/paper-workflow/SKILL.md",
+      "sha256": "bf02baa41b3639b732c1ca1ae41074b232bc37a8f4c0a7382dfa80d9ab60b27c",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/rebuttal-response/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/rebuttal-response/SKILL.md",
+      "sha256": "a521c3e599a433fde69a3d65056f9975b3ab220fead0a736fc3237912b52cc4e",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/results-section-revision/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/results-section-revision/SKILL.md",
+      "sha256": "5f51ebae06f9a5eea3fdaf268457c1c441e0e2339b5c2f9e0815103de814a654",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/SKILL.md",
+      "sha256": "73f106b83e5ff736b1fa7c2eb79ad92b95d13e35ee49a672efd3b1c5227acdb8",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/references/citation_styles.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/references/citation_styles.md",
+      "sha256": "23e4e2d07858d8a73f8c4168fbc74436cfbee4b484a2fa38a6d3d72c09eeaaa9",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/references/editor-first-impression.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/references/editor-first-impression.md",
+      "sha256": "e92e936977ee8c578b0c3a5e7cf14d04bb05f3d78ac4831779b26b5e1c7d9f66",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/references/figures_tables.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/references/figures_tables.md",
+      "sha256": "fdbd4a65f624c0582fb9ee07ede8279e05955bcf1ac1eeaa7c03baf5288f30e3",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/references/imrad_structure.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/references/imrad_structure.md",
+      "sha256": "f68094c7adba333ff3d628cd99e335e4beea250e47e4cf3e0d476ed79978d410",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/references/reporting_guidelines.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/references/reporting_guidelines.md",
+      "sha256": "02a58157e8e7fe54e241fedb6bc7721c435c16399bdfad62200c1124c766f43c",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/scientific-writing/references/writing_principles.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/scientific-writing/references/writing_principles.md",
+      "sha256": "c786f9fe6f21b346fe3e43da20c4fa19206e93e5488ba9600d45a3b34b8c6c40",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/submission-audit/SKILL.md",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/submission-audit/SKILL.md",
+      "sha256": "78ae16317630960e993e7fb0d0c10ffd5a5d8f6e3130051cffc2e456385665c1",
+      "byteIdentical": true
+    },
+    {
+      "path": "sources/legacy-deployment/submission-audit/scripts/check_figure_refs.py",
+      "source": "nature-paper-skills-legacy",
+      "originalPath": "skills/core/submission-audit/scripts/check_figure_refs.py",
+      "sha256": "251986ebc1af83ce54472bb5ffbb47041882bfc8153ebf7078956ec1c58322fe",
+      "byteIdentical": true
+    }
+  ]
+}
