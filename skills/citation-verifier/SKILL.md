@@ -101,7 +101,7 @@ which checks remain unperformed.
    - volume, issue, pages, or article number
    - DOI versus preprint identifier
 5. Resolve each work's identity with `ocsl-review-reference-integrity`; metadata agreement alone does not establish claim support.
-6. Route claim-to-source checks to `ocsl-review-claim-source-verification`. For a manuscript-wide census, use `ocsl-review-citation-support-census` and discover `ocsl-review review census --help`; preserve abstract, full-text and panel tiers and unresolved identities.
+6. Route claim-to-source checks to `ocsl-review-claim-source-verification`. For a manuscript-wide census, use `ocsl-review-citation-census` and discover `ocsl-review review census --help`; preserve abstract, full-text and panel tiers and unresolved identities.
 7. Only then finalize formatting for the venue.
 
 When Advanced orchestration is configured, discover the approved workers with
