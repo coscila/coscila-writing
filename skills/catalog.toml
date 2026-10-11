@@ -447,3 +447,27 @@ enabled = true
 source = "kdense"
 license = "MIT AND LPPL-1.3c-or-later"
 additional_runtimes = ["pdflatex", "pdfinfo", "pdffonts"]
+
+[[skill]]
+id = "facts-first-reporting"
+path = "skills/facts-first-reporting"
+name = "facts-first-reporting"
+description = "Assemble or audit quantitative manuscript text from a source-hashed facts export with reproducible derivations. Use when report numbers, denominators, tables and figures must agree with the recorded analysis."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "ocsl-original"
+license = "Apache-2.0"
+additional_runtimes = []
+
+[[skill]]
+id = "llm-judge-study-reporting"
+path = "skills/llm-judge-study-reporting"
+name = "llm-judge-study-reporting"
+description = "Write or audit a study that uses language models to judge citation support or other scientific evidence, preserving evidence tiers, calibration uncertainty, worker provenance and per-provider usage."
+primary_environment = "writing-core"
+aliases = []
+enabled = true
+source = "ocsl-original"
+license = "Apache-2.0"
+additional_runtimes = []

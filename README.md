@@ -8,7 +8,9 @@ This is a source-checkout companion to `oc-science-lab-bio` and
 The package organizes the deployment's 21 loose skills and adds selected
 K-Dense, Nature-Paper-Skills and Orchestra Research material. All 19 skills in
 the pinned Nature Skills repository are available by default. The resulting
-catalog contains 37 skills, with explicit runtime and source records.
+catalog contains 39 skills, with explicit runtime and source records. Original
+Apache-2.0 skills `facts-first-reporting` and `llm-judge-study-reporting` connect
+verified census exports and configured platform workers to manuscript production.
 
 ## Layout
 

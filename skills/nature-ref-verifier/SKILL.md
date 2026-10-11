@@ -86,9 +86,15 @@ Query the available sources for each reference:
 
 **Query strategy:** first query Crossref by DOI; fall back to a web search by title and author.
 
-**Batch strategy:** above 20 references, assign groups of 10–15 to parallel subagents and combine
-the results. Upstream reports that three parallel subagents handled a 35-entry example within
-one interaction, with sequential work approximately an order of magnitude slower.
+**Batch strategy:** use scripted metadata lookups for reference identity. For
+scientific support across a manuscript, route to
+`ocsl-review-citation-support-census` (`ocsl-review review census --help`);
+metadata agreement is not claim verification. Preserve abstract screening,
+full-text assessment, panel calibration and unknown states separately.
+When worker configs exist, inspect `node tools/ocsl-workers.mjs configs` and
+use approved platform bulk calls for structured judgement. Agent workers handle
+residual identities or evidence tasks that need files/tools. Do not require
+subagent batching by bibliography size or bypass per-provider token accounting.
 
 ### Step 3: Compare fields
 
@@ -223,3 +229,6 @@ is an unknown/coverage state. It does not establish a fabricated reference, an
 invalid DOI or lack of scientific support. Preserve legitimate missing metadata.
 Route an independent claim-to-source audit to the review companion and record
 exact locators and abstentions. Automated metadata checks are not human review.
+Derived manuscript counts belong in `facts-first-reporting`; reporting a model
+judge study also uses `llm-judge-study-reporting`. Calibration replicates of one
+model are not independent raters, and historical outputs are not gold labels.

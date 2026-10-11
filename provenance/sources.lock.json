@@ -50,6 +50,12 @@
       "license": "CC-BY-4.0",
       "archive": "sources/legacy-deployment/manuscript-review",
       "integration": "Legacy clarity review preserved with manuscript-writing-review compatibility alias."
+    },
+    {
+      "id": "ocsl-original",
+      "license": "Apache-2.0",
+      "archive": "skills",
+      "integration": "Original facts-first-reporting and llm-judge-study-reporting skills; source-hashed derivation checks and configured-worker reporting. Exact file revisions are recorded in content-files.lock.json."
     }
   ]
 }

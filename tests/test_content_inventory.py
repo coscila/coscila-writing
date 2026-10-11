@@ -18,7 +18,8 @@ class ContentInventoryTests(unittest.TestCase):
         nature_names = {p.parent.name for p in (ROOT / 'upstream/nature-skills/skills').glob('*/SKILL.md') if p.parent.name != 'nature-shared'}
         self.assertEqual(len(nature_names), 19)
         self.assertTrue(nature_names <= identifiers)
-        self.assertEqual(len(identifiers), 37)
+        self.assertEqual(len(identifiers), 39)
+        self.assertTrue({'facts-first-reporting', 'llm-judge-study-reporting'} <= identifiers)
         aliases = {alias: row['id'] for row in catalog['skill'] for alias in row['aliases']}
         self.assertEqual(aliases['researchwrite'], 'nature-proposal-writer')
         self.assertEqual(aliases['manuscript-writing-review'], 'manuscript-review')

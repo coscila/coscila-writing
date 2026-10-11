@@ -100,9 +100,17 @@ which checks remain unperformed.
    - venue or journal name
    - volume, issue, pages, or article number
    - DOI versus preprint identifier
-5. For every citation that matters to a scientific claim, verify the paper exists in trusted sources.
-6. If a claim depends on a specific result, confirm the cited paper actually supports that claim.
+5. Resolve each work's identity with `ocsl-review-reference-integrity`; metadata agreement alone does not establish claim support.
+6. Route claim-to-source checks to `ocsl-review-claim-source-verification`. For a manuscript-wide census, use `ocsl-review-citation-support-census` and discover `ocsl-review review census --help`; preserve abstract, full-text and panel tiers and unresolved identities.
 7. Only then finalize formatting for the venue.
+
+When Advanced orchestration is configured, discover the approved workers with
+`node tools/ocsl-workers.mjs configs`. Use platform bulk calls for structured
+judgements and agent workers for unresolved cases that need tools or files;
+the plan states assignments and the platform records usage. Do not create
+unconfigured model calls or interpret a historical verdict as ground truth.
+Use `facts-first-reporting` for derived counts and `llm-judge-study-reporting`
+when writing up model-assessed evidence.
 
 ## Trusted Verification Sources
 
