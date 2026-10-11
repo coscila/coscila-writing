@@ -65,6 +65,13 @@ def parser() -> argparse.ArgumentParser:
     uninstall.add_argument("--stage-timeout", type=float, default=900)
     translations = commands.add_parser("translations").add_subparsers(dest="action", required=True)
     translations.add_parser("verify")
+    fact_commands = commands.add_parser("facts").add_subparsers(dest="action", required=True)
+    for action in ("verify", "render"):
+        item = fact_commands.add_parser(action)
+        item.add_argument("--facts", type=Path, required=True)
+        if action == "render":
+            item.add_argument("--template", type=Path, required=True)
+            item.add_argument("--output", type=Path, required=True)
     doctor = commands.add_parser("doctor")
     doctor.add_argument("--live", action="store_true")
     doctor.add_argument("--strict", action="store_true")
@@ -123,6 +130,11 @@ def dispatch(args):
     if command == "translations":
         from . import translations
         return translations.verify(paths)
+    if command == "facts":
+        from . import facts
+        if action == "verify":
+            return facts.verify_facts(args.facts)
+        return facts.render_facts(args.facts, args.template, args.output)
     if command == "doctor":
         from . import mcps, translations
         result = {"catalogs": catalogs.validate_catalogs(paths), "translations": translations.verify(paths),
