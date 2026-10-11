@@ -49,7 +49,7 @@ those claims are delivered.
 Preserve uncertainty and evidence tiers when editing: an abstract screening
 result must not become a full-text verification claim. Route scientific
 claim-to-source checks to the review companion, and manuscript-wide citation
-checking to `ocsl-review-citation-support-census`
+checking to `ocsl-review-citation-census`
 (`ocsl-review review census --help`). For configured delegated work, use
 `node tools/ocsl-workers.mjs --help` and the approved configs; bulk judgement
 and agentic evidence tasks have different roles. Do not infer truth from

@@ -16,7 +16,7 @@ Methods, limitations and tables. Assemble quantitative results with
 `facts-first-reporting`; a paper's earlier headline is not a validation target.
 
 For new judging or calibration, use the review companion's
-`ocsl-review-citation-support-census`. Discover its interface with
+`ocsl-review-citation-census`. Discover its interface with
 `ocsl-review review census --help`. Reuse the approved worker configs via
 `node tools/ocsl-workers.mjs --help`; use bulk calls for structured judgements
 and agent workers for tasks that need files, tools or multi-step analysis.

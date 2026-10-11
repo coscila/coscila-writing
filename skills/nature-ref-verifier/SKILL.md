@@ -88,7 +88,7 @@ Query the available sources for each reference:
 
 **Batch strategy:** use scripted metadata lookups for reference identity. For
 scientific support across a manuscript, route to
-`ocsl-review-citation-support-census` (`ocsl-review review census --help`);
+`ocsl-review-citation-census` (`ocsl-review review census --help`);
 metadata agreement is not claim verification. Preserve abstract screening,
 full-text assessment, panel calibration and unknown states separately.
 When worker configs exist, inspect `node tools/ocsl-workers.mjs configs` and

@@ -34,6 +34,6 @@ typesetting. Audit numerical claims written outside the substitution helper:
 it cannot detect every bare number or establish scientific validity.
 
 For LLM-judged studies, also use `llm-judge-study-reporting`. New evidentiary work
-belongs in `ocsl-review-citation-support-census` or the review companion's
+belongs in `ocsl-review-citation-census` or the review companion's
 claim-to-source verification, not a metadata lookup. Existing authorization and
 confidentiality rules govern worker-provider egress.
