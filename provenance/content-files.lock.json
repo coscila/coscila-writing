@@ -627,7 +627,8 @@
     },
     {
       "path": "skills/catalog.toml",
-      "sha256": "5c68177a21847f229980ce23e0da37737974130a1fb90474423b25b9a1f88546"
+      "sha256": "1df8d64414de1bb3aa884b62a612b8434900bfad3a7a0b241653f12f1fad3913",
+      "status": "local-addition"
     },
     {
       "path": "skills/citation-management/LICENSE-UPSTREAM",
@@ -831,7 +832,7 @@
     },
     {
       "path": "skills/citation-verifier/SKILL.md",
-      "sha256": "fa5355da8ff1ffd266b9c25368dd28cceedcb270aad80b7a2978a9417827be01",
+      "sha256": "bd629953a63c9b68987e56008a716c1407d3eea60575b446663f398cf54a2457",
       "source": "nature-paper-skills-legacy",
       "originalPath": "skills/core/citation-verifier/SKILL.md",
       "originalSha256": "e7407655744df8c23dc25d7adc65a24f0cfbbb21857e5a7d54e08e7d2b9fe593",
@@ -839,7 +840,7 @@
     },
     {
       "path": "skills/citation-verifier/UPSTREAM.md",
-      "sha256": "24943c9eaf1fc02ff678784daf0ee04b874649ca062b3f472be7d2023916a217",
+      "sha256": "ded6a3866fb6775e49cd13901f2e4e4986aba1ec32737be0fdc373d3fb60dd16",
       "source": "nature-paper-skills-legacy",
       "originalPath": null,
       "originalSha256": null,
@@ -1191,7 +1192,7 @@
     },
     {
       "path": "skills/manuscript-review/SKILL.md",
-      "sha256": "46889bed8880c94fb897de7eef49bf8f72a0a94fa8c8b8590b95a71b0fcf3224",
+      "sha256": "02b7ae21a475cf582187eed476f8e27d8651a64dc356fa559b538e6b1f9b0d2d",
       "source": "sciwrite",
       "originalPath": "SKILL.md",
       "originalSha256": "8000635f38e1b977d156fd1b416aa8d493db4a60ab7e083433653d60a0467e2a",
@@ -1199,7 +1200,7 @@
     },
     {
       "path": "skills/manuscript-review/UPSTREAM.md",
-      "sha256": "8aa2edc7fcb2fb766fe3bba1cde14679b8068cda6efd3c6b842e9e1cbee6a5cc",
+      "sha256": "27e4aa5c8e474b67cb3f998f30f4ae1fc6c89cc82ce26d87972cbe62caa5f95f",
       "source": "sciwrite",
       "originalPath": null,
       "originalSha256": null,
@@ -6199,7 +6200,7 @@
     },
     {
       "path": "skills/nature-ref-verifier/SKILL.md",
-      "sha256": "bf322040ebba963aafa4ab89f9444efe3184b258507e237e4c834e0bce3c6ccf",
+      "sha256": "25cc56b7e4229f7f693b56b1d292b7e116abefc2ea0c801b8776101e0563f89c",
       "source": "nature-skills",
       "originalPath": "skills/nature-ref-verifier/SKILL.md",
       "originalSha256": "6a975074d7a1c62c00dd9e8c7367cd2af0ef9d573d6d6ce5ea12f70d9320a516",
@@ -6207,7 +6208,7 @@
     },
     {
       "path": "skills/nature-ref-verifier/UPSTREAM.md",
-      "sha256": "5daa98508136c6aa74ba9ee26b9095057f50c68f7c86ca8e8b9d42b9b479a3e4",
+      "sha256": "623c4f83b4374d5c78f1add47ceeece2b9009ef393c847318cb83879d35a7148",
       "source": "nature-skills",
       "originalPath": null,
       "originalSha256": null,
@@ -8601,6 +8602,86 @@
       "path": "skills/venue-templates/skill.toml",
       "sha256": "da667ee69c803242bf717b2856f740165b450b93d542f0e36f7473bf31e4000b",
       "source": "kdense",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/facts-first-reporting/SKILL.md",
+      "sha256": "1ed2e0d7b0b88a4401006c3358620dbe4cde13265cb3ccb57105899d18dc9c3d",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/facts-first-reporting/skill.toml",
+      "sha256": "d9511612837ce23ff932d137550d6f5e7e30ec6d01272a4d062bbd650a388ee6",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/facts-first-reporting/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/facts-first-reporting/UPSTREAM.md",
+      "sha256": "a9308c577753fd04acab82d6d7fd3daf661ff69eda5c308f897ef69cd98041a8",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/llm-judge-study-reporting/SKILL.md",
+      "sha256": "7704c7b18624350da514458a48ba4baf17f0417ef42580af92c13567c52fa9a4",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/llm-judge-study-reporting/skill.toml",
+      "sha256": "67b6f47f11c15ce80655da465dafe2f774a06137ce93929464d458dcd388f478",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/llm-judge-study-reporting/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/llm-judge-study-reporting/UPSTREAM.md",
+      "sha256": "a9308c577753fd04acab82d6d7fd3daf661ff69eda5c308f897ef69cd98041a8",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/llm-judge-study-reporting/references/reporting-standard.md",
+      "sha256": "2d75b625f505d7fa00b916fc8c9d9e2a2f10ff0ea6f24b25b77fc6dce8e4866d",
+      "source": "ocsl-original",
+      "originalPath": null,
+      "originalSha256": null,
+      "status": "local-addition"
+    },
+    {
+      "path": "skills/facts-first-reporting/references/facts-contract.md",
+      "sha256": "5460ef5801fb9a22e02f4497307870ec3193e0f6de046984cc1e254c6a70c7d0",
+      "source": "ocsl-original",
       "originalPath": null,
       "originalSha256": null,
       "status": "local-addition"

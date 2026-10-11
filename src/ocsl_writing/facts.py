@@ -55,7 +55,7 @@ def verify_facts(path: Path) -> dict:
         raise ValidationError("expected version-1 exported census facts")
     verified = {}
     for key, fact in data["facts"].items():
-        if not re.fullmatch(r"[A-Za-z0-9_.-]+", key) or not isinstance(fact, dict):
+        if not re.fullmatch(r"[A-Za-z0-9_.-]+", key) or not isinstance(fact, dict) or "value" not in fact:
             raise ValidationError("invalid fact identifier or record")
         source = fact.get("source", {})
         if not isinstance(source, dict) or not isinstance(source.get("path"), str):
@@ -106,7 +106,10 @@ def render_facts(facts: Path, template: Path, output: Path) -> dict:
         value = report["facts"][key]["value"]
         if formatting and not re.fullmatch(r"[,.0-9]*[df%]", formatting):
             raise ValidationError(f"unsupported numeric format for {key}")
-        return format(value, formatting) if formatting else str(value)
+        try:
+            return format(value, formatting) if formatting else str(value)
+        except (ValueError, TypeError) as error:
+            raise ValidationError(f"fact {key} cannot use the requested numeric format") from error
 
     rendered = TOKEN.sub(replace, text)
     if "{{fact:" in rendered or not used:

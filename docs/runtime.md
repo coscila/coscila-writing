@@ -118,3 +118,19 @@ change Python builds underneath existing templates; rebuild and restage.
 
 Examples using the short `ocsl-writing` command assume this checkout’s `bin`
 directory is on PATH; otherwise invoke `"$OCSL_WRITING_HOME/bin/ocsl-writing"`.
+
+## Derived manuscript facts and configured workers
+
+`ocsl-writing facts verify --facts results/census/facts.json` recomputes each
+exported fact from its hashed SQLite snapshot. `facts render` takes `--facts`,
+`--template` and `--output`, replacing explicit `{{fact:KEY}}` tokens only after
+verification. These stdlib-only commands run in `writing-core`; the snapshot
+must be closed without a WAL. Verification proves the recorded scalar
+derivation, not the scientific validity of the underlying assessments.
+
+`facts-first-reporting` and `llm-judge-study-reporting` are original Apache-2.0
+skills. They route evidentiary work to the review companion's census and use
+the chat's `node tools/ocsl-workers.mjs` helper when Advanced orchestration is
+configured. The writing package does not own worker execution, credentials,
+model caps or provider accounting. Missing helpers/companions are reported
+explicitly rather than replaced with unmetered direct model calls.

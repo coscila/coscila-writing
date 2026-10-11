@@ -1,5 +1,5 @@
-............................................................................................................ss....................
-----------------------------------------------------------------------
-Ran 130 tests in 7.988s
-
-OK (skipped=2)
+Command: PYTHONPATH=src:tests writing-documents/prefix/bin/python -m unittest discover -s tests -p test_*.py -q
+Environment: promoted writing-documents template d2700baa43697056c20ba9645e75b05d238bc64a8d223e2364abfac14f36e56b
+Result: Ran 137 tests in 9.556s; OK; no skips.
+Includes seven original facts derivation/rendering behaviour tests.
+Additional validation: catalog 39 skills / 41 discovery names; complete unchanged Nature translation coverage 799 files; both original skill entrypoints valid.
