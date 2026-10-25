@@ -93,6 +93,102 @@ def verify_facts(path: Path) -> dict:
             "verification": "source hashes and scalar derivations; not scientific validity"}
 
 
+# Bare-number gate. Regions that legitimately carry digits are blanked (newlines kept, so line and
+# column numbers still address the original text); every remaining numeral must come from a fact token.
+_BLANK_COMMON = [
+    re.compile(r"<https?://[^>\s]+>|https?://[^\s)>\]}]+"),               # URLs
+    re.compile(r"\b10\.\d{4,9}/[^\s\"<>{}]+"),                             # DOIs
+    re.compile(r"\b(?:arXiv:\s?\d{4}\.\d{4,5}(?:v\d+)?|PMID:?\s?\d+|PMCID:?\s?PMC\d+|PMC\d+)", re.I),
+    re.compile(r"\[\s*\d+(?:\s*[-\u2013\u2014,;]\s*\d+)*\s*\]"),          # numeric citation markers
+    TOKEN,
+]
+_BLANK_MARKDOWN = [
+    re.compile(r"(?ms)^(?:```|~~~).*?^(?:```|~~~)[^\n]*$"),             # fenced code blocks
+    re.compile(r"`[^`\n]+`"),                                              # inline code
+    re.compile(r"(?s)<!--.*?-->"),                                         # HTML comments
+    re.compile(r"\]\([^)\n]*\)"),                                          # link targets
+    re.compile(r"(?m)^\s*\[[^\]\n]+\]:\s*\S+.*$"),                         # link definitions
+    re.compile(r"(?m)^\s*\d+[.)](?=\s)"),                                  # list markers
+    re.compile(r"(?m)^#{1,6}\s+\d+(?:\.\d+)*\.?(?=\s)"),                   # numbered headings
+]
+_BLANK_LATEX = [
+    re.compile(r"(?m)(?<!\\)%.*$"),                                        # comments
+    re.compile(r"(?s)\\begin\{thebibliography\}.*?\\end\{thebibliography\}"),
+    re.compile(r"\\(?:ref|eqref|autoref|cref|Cref|pageref|label|cite[a-zA-Z]*|url|href|input|include|"
+               r"bibliography|bibliographystyle|includegraphics|documentclass|usepackage|setcounter|addtocounter|"
+               r"setlength|vspace|hspace|newcommand|renewcommand|definecolor|begin|end|fontsize|linespread|"
+               r"hypersetup|graphicspath)\*?(?:\[[^\]]*\])*(?:\{[^{}]*\})*"),
+    re.compile(r"\d*\.?\d+\s*\\(?:textwidth|linewidth|columnwidth|textheight|paperwidth|paperheight)"),
+    re.compile(r"(?m)^\s*\\item(?:\[[^\]]*\])?"),
+]
+_NUMERAL = re.compile(r"(?<![\w.@/\\\-−])[-+−]?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?(?:\s?\\?%)?(?![\w@/]|-\w|\.\d)")
+_DISPLAY_PREFIX = re.compile(
+    r"(?:\b(?:Figs?\.|Figures?|Tables?|Sections?|Secs?\.|Eqs?\.|Equations?|Chapters?|Box(?:es)?|Notes?|Appendix|"
+    r"Appendices|Steps?|Phases?|Stages?|Gates?|Panels?|Refs?\.|References?|Lines?|Pages?|pp?\.|Algorithms?|"
+    r"Extended Data Figs?\.|Extended Data Tables?|Supplementary (?:Figs?\.|Figures?|Tables?|Notes?|Data|Methods?|"
+    r"Information|Sections?|Videos?|Files?))|§)[\s~]*(?:\d+[A-Za-z]?[\s~]*(?:[-–—,]|and|to|or)[\s~]*)*$")
+_REFERENCES_HEADING = re.compile(r"(?mi)^(?:#{1,6}\s*(?:references|bibliography)\s*$|\\section\*?\{(?:references|bibliography)\})")
+_DEFAULT_ALLOW = [re.compile(r"\b9[05]\s?\\?%\s?(?:CI|confidence)")]
+_WAIVER = "facts-lint: allow"
+
+
+def lint_manuscript(manuscript: Path, facts: Path | None = None, allow: list[str] | tuple[str, ...] = ()) -> dict:
+    """Bare-number gate: every numeral in a manuscript must come from a ``{{fact:...}}`` token.
+
+    Allowed without a token: years 1900-2099, figure/table/section/equation and similar display
+    references, numeric citation markers, list and heading numbers, code, URLs, identifiers, LaTeX
+    structure and the bibliography. A line containing ``facts-lint: allow`` is skipped. With
+    ``facts``, every token must name a verified fact.
+    """
+    path = Path(manuscript)
+    text = path.read_text(encoding="utf-8")
+    patterns = _DEFAULT_ALLOW + [re.compile(item) for item in allow]
+    keys = [match.group(1) for match in TOKEN.finditer(text)]
+    unknown, facts_sha = [], None
+    if facts is not None:
+        report = verify_facts(facts)
+        facts_sha = report["factsSha256"]
+        unknown = sorted(set(key for key in keys if key not in report["facts"]))
+    blanked = list(text)
+
+    def blank(start: int, end: int) -> None:
+        for index in range(start, end):
+            if blanked[index] != "\n":
+                blanked[index] = " "
+
+    heading = _REFERENCES_HEADING.search(text)
+    if heading:
+        blank(heading.start(), len(text))
+    latex = path.suffix.lower() in {".tex", ".ltx", ".latex"}
+    for pattern in _BLANK_COMMON + (_BLANK_LATEX if latex else _BLANK_MARKDOWN) + patterns:
+        for match in pattern.finditer(text):
+            blank(match.start(), match.end())
+    scan = "".join(blanked)
+    lines = text.split("\n")
+    starts, offset = [], 0
+    for line in lines:
+        starts.append(offset)
+        offset += len(line) + 1
+    findings = []
+    for match in _NUMERAL.finditer(scan):
+        line_index = max(0, next((i for i in range(len(starts) - 1, -1, -1) if starts[i] <= match.start()), 0))
+        line = lines[line_index]
+        if _WAIVER in line:
+            continue
+        token = match.group(0)
+        digits = token.lstrip("+-−")
+        if re.fullmatch(r"(?:19|20)\d{2}", digits):
+            continue
+        prefix = scan[max(starts[line_index], match.start() - 80):match.start()]
+        if _DISPLAY_PREFIX.search(prefix):
+            continue
+        findings.append({"line": line_index + 1, "column": match.start() - starts[line_index] + 1, "text": token,
+                         "context": line.strip()[:160]})
+    return {"ok": not findings and not unknown, "manuscript": str(path), "manuscriptSha256": sha256_file(path),
+            "factTokens": len(keys), "bareNumbers": findings, "unknownFacts": unknown, "factsSha256": facts_sha,
+            "verification": "every numeral resolves to a fact token or an allowed structural use; not scientific validity"}
+
+
 def render_facts(facts: Path, template: Path, output: Path) -> dict:
     report = verify_facts(facts)
     text = template.read_text(encoding="utf-8")
