@@ -130,12 +130,19 @@ derivation, not the scientific validity of the underlying assessments.
 
 `ocsl-writing facts lint --manuscript manuscript.template.md [--facts facts.json]`
 is the bare-number gate: every numeral must come from a `{{fact:KEY}}` token.
-Years, figure, table, section and equation references, numeric citation
-markers, list and heading numbers, code, URLs, identifiers, LaTeX structure and
-the bibliography are allowed; `--allow REGEX` adds patterns and a line carrying
-`facts-lint: allow` is skipped. With `--facts`, every token must name a verified
-fact. The command exits non-zero and lists each bare numeral with its line and
-column.
+A range counts as two numerals (`15.7-16.3`, `15.7--16.3`), a fraction as two
+(`226/259`), and a numeral with a magnitude, multiplier or unit suffix (`670k`,
+`2x`, `2-fold`, `3h`, `5mg`) is a quantity that needs a token. Allowed without
+a token: years in a date context (after in, since, from or between, beside a
+month or another year, inside an author-year citation, or as a table's year
+label), complete dates, figure, table, section and equation references (the
+bare integers that follow them), numeric citation markers, list and heading
+numbers, code, URLs, identifiers such as `IL-6` or `Qwen3.8`, LaTeX structure
+and each reference list up to the next heading. `--allow REGEX` adds patterns;
+a line carrying `facts-lint: allow` is waived only with `--permit-waivers`. The
+report lists every allowed numeral with its pattern and every waived line with
+its numerals. With `--facts`, every token must name a verified fact. The command
+exits non-zero and lists each bare numeral with its line and column.
 
 `facts-first-reporting` and `llm-judge-study-reporting` are original Apache-2.0
 skills. They route evidentiary work to the review companion's census and use
