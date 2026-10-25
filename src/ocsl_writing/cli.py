@@ -72,6 +72,10 @@ def parser() -> argparse.ArgumentParser:
         if action == "render":
             item.add_argument("--template", type=Path, required=True)
             item.add_argument("--output", type=Path, required=True)
+    lint = fact_commands.add_parser("lint", help="bare-number gate: every numeral must come from a fact token")
+    lint.add_argument("--manuscript", type=Path, required=True)
+    lint.add_argument("--facts", type=Path, help="also require every token to name a verified fact")
+    lint.add_argument("--allow", action="append", default=[], help="extra regular expression for allowed numerals")
     doctor = commands.add_parser("doctor")
     doctor.add_argument("--live", action="store_true")
     doctor.add_argument("--strict", action="store_true")
@@ -134,6 +138,8 @@ def dispatch(args):
         from . import facts
         if action == "verify":
             return facts.verify_facts(args.facts)
+        if action == "lint":
+            return facts.lint_manuscript(args.manuscript, args.facts, args.allow)
         return facts.render_facts(args.facts, args.template, args.output)
     if command == "doctor":
         from . import mcps, translations
