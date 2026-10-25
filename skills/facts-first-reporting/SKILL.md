@@ -18,9 +18,13 @@ into prose, captions, tables or figures:
 
 ```sh
 ocsl-writing facts verify --facts results/census/facts.json
+ocsl-writing facts lint --manuscript manuscript.template.md --facts results/census/facts.json
 ocsl-writing facts render --facts results/census/facts.json \
   --template manuscript.template.md --output manuscript.md
 ```
+
+`facts lint` is the bare-number gate: every numeral in the template must come
+from a fact token; it lists each bare numeral with its line and column.
 
 Verification recomputes SQL against a hashed snapshot. It confirms the recorded
 derivation, not source identity, scientific truth or the validity of a model
@@ -30,8 +34,8 @@ assembly; repair the analysis export rather than editing a number to pass.
 
 Preserve facts identifiers and the verification receipt with the manuscript.
 Check rendered PDF text, captions and rounding against the same export after
-typesetting. Audit numerical claims written outside the substitution helper:
-it cannot detect every bare number or establish scientific validity.
+typesetting. Run `facts lint` on every template before rendering; it cannot
+establish scientific validity, and allowed structural numbers still need review.
 
 For LLM-judged studies, also use `llm-judge-study-reporting`. New evidentiary work
 belongs in `ocsl-review-citation-census` or the review companion's
