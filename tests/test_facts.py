@@ -153,10 +153,66 @@ class FactsLintTests(unittest.TestCase):
                 "\\begin{thebibliography}{9}\\bibitem{x} A. J. 12, 34 (2018).\\end{thebibliography}\n\\end{document}\n")
         self.assertEqual(["16\\%", "3.2"], self.bare(text, ".tex"))
 
-    def test_waivers_and_extra_allow_patterns(self):
-        self.assertEqual([], self.bare("Threshold 0.05 here. <!-- facts-lint: allow -->\n"))
-        self.assertEqual([], self.bare("Python 3.11 was used.\n", allow=[r"Python \d+\.\d+"]))
+    def test_waivers_and_extra_allow_patterns_are_reported(self):
+        report = self.lint("Threshold 0.05 here. <!-- facts-lint: allow -->\n")
+        self.assertEqual([], report["bareNumbers"])
+        self.assertEqual([{"line": 1, "numerals": ["0.05"]}], report["waivedLines"])
+        self.assertFalse(report["ok"], "a waiver that hides a numeral fails unless waivers are permitted")
+        permitted = self.lint("Threshold 0.05 here. <!-- facts-lint: allow -->\n", permit_waivers=True)
+        self.assertTrue(permitted["ok"])
+        self.assertEqual([{"line": 1, "numerals": ["0.05"]}], permitted["waivedLines"])
+        allowed = self.lint("Python 3.11 was used.\n", allow=[r"Python \d+\.\d+"])
+        self.assertEqual([], allowed["bareNumbers"])
+        self.assertEqual([("3.11", r"Python \d+\.\d+")], [(a["text"], a["pattern"]) for a in allowed["allowedNumerals"]])
+        self.assertIn(r"Python \d+\.\d+", allowed["allowPatterns"])
         self.assertEqual(["3.11"], self.bare("Python 3.11 was used.\n"))
+
+    def test_ranges_fractions_and_suffixed_quantities_need_tokens(self):
+        cases = {
+            "unsupported at 16.0 % (15.7-16.3), a 2-fold excess": ["16.0 %", "15.7", "16.3", "2-fold"],
+            "The ratio was 1.5-2.7 and 1.5–2.7.": ["1.5", "2.7", "1.5", "2.7"],
+            "Ranges 13-19 % and 5.5-10.5 % across strata.": ["13", "19 %", "5.5", "10.5 %"],
+            "Readable reviews: 226/259 at 47.2/s.": ["226", "259", "47.2"],
+            "670k entries using 285.8M tokens (53.5k per review) in 3h05m.": ["670k", "285.8M", "53.5k", "3h"],
+            "A 2x faster run, 1.9x cheaper, 40-entry calls, a 5-year span, 2× more.": ["2x", "1.9x", "40-entry",
+                                                                                        "5-year", "2×"],
+            "p < .05, 1e-5, 2.5e3, 37°C, 5 mg/kg, 5mg, -3.5, +2 and −4.": [".05", "1e-5", "2.5e3", "37°C", "5", "5mg",
+                                                                         "-3.5", "+2", "−4"],
+        }
+        for text, expected in cases.items():
+            with self.subTest(text=text):
+                self.assertEqual(expected, self.bare(text + "\n"))
+        self.assertEqual(["16.0\\%", "15.7", "16.3", "226", "259"],
+                         self.bare("A share of 16.0\\% (15.7--16.3) in 226/259 reviews.\n", ".tex"))
+
+    def test_identifiers_terms_and_display_references_stay_allowed(self):
+        text = ("COVID-19, IL-6, SHA-256, Qwen3.8, citation-census@1, 3D, 16S rRNA, 18F-FDG, 5-FU, the 2nd round, "
+                "5hmC, version 3.11.4 (Fig. 2a; Figs. 3-4; Tables 1 and 2; Section 4.2; pp. 12-15).\n")
+        self.assertEqual([], self.bare(text))
+
+    def test_display_exemption_covers_only_the_referenced_integers(self):
+        self.assertEqual(["12.3%", "4.5%"], self.bare("(Fig. 2, 12.3% vs 4.5%)\n"))
+        self.assertEqual(["35"], self.bare("Table 1 and 35 reviews.\n"))
+        self.assertEqual(["7.5%"], self.bare("Phase 4 and 7.5% of the cohort.\n"))
+        self.assertEqual(["1,234"], self.bare("Supplementary Table 3 lists 1,234 entries.\n"))
+
+    def test_years_pass_only_in_date_contexts(self):
+        dates = ("Reviews first online from 2020 to 2026 (2020-2026), in 2021, 2022 and 2023, since 2019 and "
+                 "between 2020 and 2025; Smith et al. (2019); (Smith, 2018); the 1990s; 1 January 2020; "
+                 "September 9, 2026; 2026-09-09; mid-2024.\n")
+        self.assertEqual([], self.bare(dates))
+        self.assertEqual(["1965", "2045"], self.bare("We judged 1965 entries in 2045 calls.\n"))
+        self.assertEqual(["1965", "2013"], self.bare("We excluded 1965 systematic reviews and judged 2013 entries.\n"))
+        self.assertEqual([], self.bare("| Year | Share |\n|---|---|\n| 2020 | {{fact:count}} |\n"))
+
+    def test_reference_lists_end_at_the_next_heading(self):
+        markdown = ("Intro {{fact:count}}.\n\n## References\n\n1. Author A. Journal 12:34-56 (2019).\n\n"
+                    "## Methods\n\nWe judged 40 entries, 2,200 characters and B = 10,000.\n\n"
+                    "**References**\n\n2. Author B. Journal 7:8 (2018).\n\n# Extended Data\n\nn = 44\n")
+        self.assertEqual(["40", "2,200", "10,000", "44"], self.bare(markdown))
+        latex = ("\\section*{References}\nA. J. 12, 34 (2019).\n\\section{Methods}\nWe used 40 entries.\n"
+                 "\\subsection*{Bibliography}\nB. K. 5, 6 (2017).\n\\subsection{Extended Data}\nn = 45\n\\end{document}\n")
+        self.assertEqual(["40", "45"], self.bare(latex, ".tex"))
 
     def test_unknown_fact_tokens_fail_with_facts(self):
         report = self.lint("{{fact:count}} and {{fact:missing}}\n", facts=self.path)
@@ -170,6 +226,9 @@ class FactsLintTests(unittest.TestCase):
         self.assertEqual(1, main(["facts", "lint", "--manuscript", str(manuscript), "--facts", str(self.path)]))
         manuscript.write_text("{{fact:count}} items.\n", encoding="utf-8")
         self.assertEqual(0, main(["facts", "lint", "--manuscript", str(manuscript), "--facts", str(self.path)]))
+        manuscript.write_text("{{fact:count}} items; 0.05 waived. <!-- facts-lint: allow -->\n", encoding="utf-8")
+        self.assertEqual(1, main(["facts", "lint", "--manuscript", str(manuscript)]))
+        self.assertEqual(0, main(["facts", "lint", "--manuscript", str(manuscript), "--permit-waivers"]))
 
     fact = FactsTests.fact
     save = FactsTests.save

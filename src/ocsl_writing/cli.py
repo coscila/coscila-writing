@@ -76,6 +76,8 @@ def parser() -> argparse.ArgumentParser:
     lint.add_argument("--manuscript", type=Path, required=True)
     lint.add_argument("--facts", type=Path, help="also require every token to name a verified fact")
     lint.add_argument("--allow", action="append", default=[], help="extra regular expression for allowed numerals")
+    lint.add_argument("--permit-waivers", action="store_true",
+                      help="let lines carrying 'facts-lint: allow' pass (they are still listed in the report)")
     doctor = commands.add_parser("doctor")
     doctor.add_argument("--live", action="store_true")
     doctor.add_argument("--strict", action="store_true")
@@ -139,7 +141,7 @@ def dispatch(args):
         if action == "verify":
             return facts.verify_facts(args.facts)
         if action == "lint":
-            return facts.lint_manuscript(args.manuscript, args.facts, args.allow)
+            return facts.lint_manuscript(args.manuscript, args.facts, args.allow, args.permit_waivers)
         return facts.render_facts(args.facts, args.template, args.output)
     if command == "doctor":
         from . import mcps, translations
