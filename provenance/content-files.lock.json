@@ -832,7 +832,7 @@
     },
     {
       "path": "skills/citation-verifier/SKILL.md",
-      "sha256": "bd629953a63c9b68987e56008a716c1407d3eea60575b446663f398cf54a2457",
+      "sha256": "f65b5cd7c9e516f9a5034dc75d53620352de7ab95bb4617a9f039a02fe80ed07",
       "source": "nature-paper-skills-legacy",
       "originalPath": "skills/core/citation-verifier/SKILL.md",
       "originalSha256": "e7407655744df8c23dc25d7adc65a24f0cfbbb21857e5a7d54e08e7d2b9fe593",
@@ -1192,7 +1192,7 @@
     },
     {
       "path": "skills/manuscript-review/SKILL.md",
-      "sha256": "02b7ae21a475cf582187eed476f8e27d8651a64dc356fa559b538e6b1f9b0d2d",
+      "sha256": "72fde5357fc036b2071997226e7d590e4f761815fa5b61f85159d408d6c961bd",
       "source": "sciwrite",
       "originalPath": "SKILL.md",
       "originalSha256": "8000635f38e1b977d156fd1b416aa8d493db4a60ab7e083433653d60a0467e2a",
@@ -6200,7 +6200,7 @@
     },
     {
       "path": "skills/nature-ref-verifier/SKILL.md",
-      "sha256": "25cc56b7e4229f7f693b56b1d292b7e116abefc2ea0c801b8776101e0563f89c",
+      "sha256": "26b138e5d94d44e02f07b1020f5ef1fbd3034b1439f3d831a639afe4469fa331",
       "source": "nature-skills",
       "originalPath": "skills/nature-ref-verifier/SKILL.md",
       "originalSha256": "6a975074d7a1c62c00dd9e8c7367cd2af0ef9d573d6d6ce5ea12f70d9320a516",
@@ -8640,7 +8640,7 @@
     },
     {
       "path": "skills/llm-judge-study-reporting/SKILL.md",
-      "sha256": "7704c7b18624350da514458a48ba4baf17f0417ef42580af92c13567c52fa9a4",
+      "sha256": "217d3824f8310c3b36566fe3a3390352bd2b5cf2f62bfc3587c26673d2def388",
       "source": "ocsl-original",
       "originalPath": null,
       "originalSha256": null,
