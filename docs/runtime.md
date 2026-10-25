@@ -128,6 +128,15 @@ verification. These stdlib-only commands run in `writing-core`; the snapshot
 must be closed without a WAL. Verification proves the recorded scalar
 derivation, not the scientific validity of the underlying assessments.
 
+`ocsl-writing facts lint --manuscript manuscript.template.md [--facts facts.json]`
+is the bare-number gate: every numeral must come from a `{{fact:KEY}}` token.
+Years, figure, table, section and equation references, numeric citation
+markers, list and heading numbers, code, URLs, identifiers, LaTeX structure and
+the bibliography are allowed; `--allow REGEX` adds patterns and a line carrying
+`facts-lint: allow` is skipped. With `--facts`, every token must name a verified
+fact. The command exits non-zero and lists each bare numeral with its line and
+column.
+
 `facts-first-reporting` and `llm-judge-study-reporting` are original Apache-2.0
 skills. They route evidentiary work to the review companion's census and use
 the chat's `node tools/ocsl-workers.mjs` helper when Advanced orchestration is
