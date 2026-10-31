@@ -99,6 +99,23 @@ enabled=true
         self.assertEqual(restored["other-setting"], "keep")
         self.assertFalse(set(integration.OWNED_MCP_NAMES) & set(restored["mcpServers"]))
 
+    def test_verify_fails_on_skills_copied_from_an_older_source_until_reinstalled(self):
+        self.install()
+        self.assertTrue(integration.status(self.paths, verify=True)["ok"])
+        source = self.home / "skills/paper-test/SKILL.md"
+        source.write_text(source.read_text() + "Scrubbed in the source\n")
+        report = integration.status(self.paths, verify=True)
+        self.assertFalse(report["ok"])
+        self.assertEqual(6, len(report["stale"]))
+        self.assertIn("uninstall", report["reason"])
+        with self.assertRaisesRegex(ValidationError, "source skills changed"):
+            self.install()
+        integration.uninstall_integration(self.paths)
+        self.assertFalse(self.install()["reused"])
+        self.assertTrue(integration.status(self.paths, verify=True)["ok"])
+        for root in self.roots:
+            self.assertIn("Scrubbed in the source", (root / "paper-test/SKILL.md").read_text())
+
     def test_edited_installed_skill_prevents_partial_uninstall(self):
         self.install()
         target = self.roots[-1] / "paper-test/SKILL.md"

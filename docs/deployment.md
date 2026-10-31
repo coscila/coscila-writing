@@ -42,6 +42,10 @@ exact tool-schema hashes, bounded live calls, an error path and clean shutdown
 through both configurations. PubMed/contact and Elsevier credentials remain
 explicit optional configuration; public success does not assert their readiness.
 
+`integrate verify` fails while any installed skill copy was made from an older
+source (a companion update moves only the checkout): renew the installation
+with `uninstall` followed by `install`, then verify again.
+
 To restore original skills, MCP entries and the five environment settings, run
 the same command with `uninstall`. The original backups remain for inspection.
 The wrapper stops if installed content or owned environment values were edited.

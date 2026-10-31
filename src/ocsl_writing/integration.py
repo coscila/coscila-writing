@@ -377,6 +377,19 @@ def uninstall_integration(paths, *, stage_timeout=900) -> dict:
                 "receipt": str(archive)}
 
 
+def stale_targets(state: dict) -> list[str]:
+    """Installed copies whose source skill changed since installation (a companion update moves only the checkout)."""
+    current: dict[str, str | None] = {}
+    stale = []
+    for record in state["targets"]:
+        source = record["source"]
+        if source not in current:
+            current[source] = tree_digest(Path(source)) if Path(source).exists() else None
+        if current[source] != record["installedSha256"]:
+            stale.append(record["target"])
+    return stale
+
+
 def status(paths, *, verify=False) -> dict:
     state_path = install_state_path(paths)
     if not state_path.exists():
@@ -384,6 +397,14 @@ def status(paths, *, verify=False) -> dict:
                 "pending": (paths.integration / "pending.json").exists()}
     state = load_json(state_path)
     result = _verify_owned(paths, state) if verify else {"ok": True, "roots": state["roots"]}
+    if verify:
+        stale = stale_targets(state)
+        if stale:
+            # Agents would keep reading text the source no longer has: verification fails until the installation is
+            # renewed from the current source (uninstall, then install).
+            result = {**result, "ok": False, "stale": stale,
+                      "reason": "installed writing skills are stale (copied from an older companion source); "
+                                "run integrate uninstall and integrate install to renew them"}
     return {**result, "installed": True, "statePath": str(state_path)}
 
 
