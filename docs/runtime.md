@@ -130,9 +130,9 @@ derivation, not the scientific validity of the underlying assessments.
 
 `ocsl-writing facts lint --manuscript manuscript.template.md [--facts facts.json]`
 is the bare-number gate: every numeral must come from a `{{fact:KEY}}` token.
-A range counts as two numerals (`15.7-16.3`, `15.7--16.3`), a fraction as two
-(`226/259`), and a numeral with a magnitude, multiplier or unit suffix (`670k`,
-`2x`, `2-fold`, `3h`, `5mg`) is a quantity that needs a token. Allowed without
+A range counts as two numerals (`21.4-22.6`, `21.4--22.6`), a fraction as two
+(`63/71`), and a numeral with a magnitude, multiplier or unit suffix (`120k`,
+`4x`, `3-fold`, `7h`, `5mg`) is a quantity that needs a token. Allowed without
 a token: years in a date context (after in, since, from or between, beside a
 month or another year, inside an author-year citation, or as a table's year
 label), complete dates, figure, table, section and equation references (the

@@ -8608,7 +8608,7 @@
     },
     {
       "path": "skills/facts-first-reporting/SKILL.md",
-      "sha256": "34ac06879672283f72a5bc3bee68a155869b3820dc109a23a146b23fa3e9836d",
+      "sha256": "b138a6ccbb8b7412cd04786d4b3ff19d1bcfc22eed3ad2c97891fabb0dd3a8c4",
       "source": "ocsl-original",
       "originalPath": null,
       "originalSha256": null,
@@ -8640,7 +8640,7 @@
     },
     {
       "path": "skills/llm-judge-study-reporting/SKILL.md",
-      "sha256": "217d3824f8310c3b36566fe3a3390352bd2b5cf2f62bfc3587c26673d2def388",
+      "sha256": "bab5eb247c0bf14ce83a10ed6ffca2ae27f473b538ec02314767e118a62bfb1d",
       "source": "ocsl-original",
       "originalPath": null,
       "originalSha256": null,
@@ -8672,7 +8672,7 @@
     },
     {
       "path": "skills/llm-judge-study-reporting/references/reporting-standard.md",
-      "sha256": "2d75b625f505d7fa00b916fc8c9d9e2a2f10ff0ea6f24b25b77fc6dce8e4866d",
+      "sha256": "d88acc593b406fba627bc739933237975a268279f3d5bf86d748ef812c2c9e16",
       "source": "ocsl-original",
       "originalPath": null,
       "originalSha256": null,

@@ -41,13 +41,14 @@ usage as zero. Platform accounting is provenance, not a quality assessment.
 
 Describe the reference labels, sample selection, seed, strata, inclusion
 probabilities, per-paper clustering and uncertainty procedure. Report agreement
-and overturn rates in both directions; a panel drawn only from flagged cases
-cannot establish population error without its sampling weights.
+and changes between evidence tiers in both directions; a validation sample
+drawn only from selected cases cannot establish population error without its
+sampling weights.
 
 Three calls to one model are replicates. Even two model families are not human
 ground truth. Distinguish repeatability, cross-model agreement and accuracy
 against independently labelled evidence. A missing human-labelled calibration
-set is a limitation, not permission to rename historical outputs gold labels.
+set is a limitation, not permission to treat other model outputs as gold labels.
 
 Show abstract, full-text and panel denominators, abstentions, retrieval coverage
 and disagreement separately. Cluster uncertainty by the actual sampling unit
@@ -58,12 +59,10 @@ limitations rather than implying causal differences in editorial quality.
 
 ## Writing and delivery
 
-An oncology census can use five figure themes: procedure/cost, distributions,
-anchored examples, calibration/benchmark and released database. This is a useful
-template, not a mandatory scientific conclusion. Every quoted example needs the
-exact cited-work identity, citing locus, evidence tier and source locator.
+Every quoted example needs the exact cited-work identity, citing locus,
+evidence tier and source locator.
 
 Write Results from the verified facts store; show unresolved evidence and
-method changes in Methods/limitations. Record how replay of the legacy workflow
-differs from the corrected workflow. Preserve provenance, facts, assessment
+method changes in Methods/limitations. Record every method change between
+protocol versions. Preserve provenance, facts, assessment
 history and worker outputs with the source manuscript and rendered report.

@@ -25,7 +25,7 @@ ocsl-writing facts render --facts results/census/facts.json \
 
 `facts lint` is the bare-number gate: every numeral in the template must come
 from a fact token, including both ends of a range, both sides of a fraction and
-suffixed quantities such as `670k` or `2-fold`; it lists each bare numeral with
+suffixed quantities such as `120k` or `3-fold`; it lists each bare numeral with
 its line and column. Waived lines (`facts-lint: allow`) fail the gate unless
 `--permit-waivers` is given and, like `--allow` patterns, are listed in the
 report for review.

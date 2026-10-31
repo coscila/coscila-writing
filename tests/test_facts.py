@@ -141,17 +141,17 @@ class FactsLintTests(unittest.TestCase):
         self.assertEqual(1, report["factTokens"])
 
     def test_bare_numbers_are_reported_with_positions(self):
-        report = self.lint("Intro.\nWe judged 12 entries; 16 % were flagged at 0.05, -3.5 and 1,234.\n")
+        report = self.lint("Intro.\nWe judged 12 entries; 27 % were flagged at 0.05, -3.5 and 1,234.\n")
         self.assertFalse(report["ok"])
-        self.assertEqual(["12", "16 %", "0.05", "-3.5", "1,234"], [f["text"] for f in report["bareNumbers"]])
+        self.assertEqual(["12", "27 %", "0.05", "-3.5", "1,234"], [f["text"] for f in report["bareNumbers"]])
         self.assertEqual((2, 11), (report["bareNumbers"][0]["line"], report["bareNumbers"][0]["column"]))
 
     def test_latex_structure(self):
         text = ("\\documentclass[11pt]{article}\n\\begin{document}\n\\section{Results}\\label{sec:2}\n"
                 "We judged {{fact:count}} items (Fig.~\\ref{fig:1}, Table~2). % 99 in a comment\n"
-                "\\includegraphics[width=0.8\\textwidth]{fig3.pdf}\n\\item A share of 16\\% is bare, so is 3.2.\n"
+                "\\includegraphics[width=0.8\\textwidth]{fig3.pdf}\n\\item A share of 27\\% is bare, so is 3.2.\n"
                 "\\begin{thebibliography}{9}\\bibitem{x} A. J. 12, 34 (2018).\\end{thebibliography}\n\\end{document}\n")
-        self.assertEqual(["16\\%", "3.2"], self.bare(text, ".tex"))
+        self.assertEqual(["27\\%", "3.2"], self.bare(text, ".tex"))
 
     def test_waivers_and_extra_allow_patterns_are_reported(self):
         report = self.lint("Threshold 0.05 here. <!-- facts-lint: allow -->\n")
@@ -169,21 +169,21 @@ class FactsLintTests(unittest.TestCase):
 
     def test_ranges_fractions_and_suffixed_quantities_need_tokens(self):
         cases = {
-            "unsupported at 16.0 % (15.7-16.3), a 2-fold excess": ["16.0 %", "15.7", "16.3", "2-fold"],
-            "The ratio was 1.5-2.7 and 1.5–2.7.": ["1.5", "2.7", "1.5", "2.7"],
-            "Ranges 13-19 % and 5.5-10.5 % across strata.": ["13", "19 %", "5.5", "10.5 %"],
-            "Readable reviews: 226/259 at 47.2/s.": ["226", "259", "47.2"],
-            "670k entries using 285.8M tokens (53.5k per review) in 3h05m.": ["670k", "285.8M", "53.5k", "3h"],
-            "A 2x faster run, 1.9x cheaper, 40-entry calls, a 5-year span, 2× more.": ["2x", "1.9x", "40-entry",
-                                                                                        "5-year", "2×"],
+            "unsupported at 22.0 % (21.4-22.6), a 3-fold excess": ["22.0 %", "21.4", "22.6", "3-fold"],
+            "The ratio was 3.1-4.2 and 3.1–4.2.": ["3.1", "4.2", "3.1", "4.2"],
+            "Ranges 31-37 % and 2.5-4.5 % across strata.": ["31", "37 %", "2.5", "4.5 %"],
+            "Readable reviews: 63/71 at 12.4/s.": ["63", "71", "12.4"],
+            "120k entries using 64.2M tokens (6.5k per review) in 7h05m.": ["120k", "64.2M", "6.5k", "7h"],
+            "A 4x faster run, 1.3x cheaper, 25-entry calls, a 5-year span, 4× more.": ["4x", "1.3x", "25-entry",
+                                                                                        "5-year", "4×"],
             "p < .05, 1e-5, 2.5e3, 37°C, 5 mg/kg, 5mg, -3.5, +2 and −4.": [".05", "1e-5", "2.5e3", "37°C", "5", "5mg",
                                                                          "-3.5", "+2", "−4"],
         }
         for text, expected in cases.items():
             with self.subTest(text=text):
                 self.assertEqual(expected, self.bare(text + "\n"))
-        self.assertEqual(["16.0\\%", "15.7", "16.3", "226", "259"],
-                         self.bare("A share of 16.0\\% (15.7--16.3) in 226/259 reviews.\n", ".tex"))
+        self.assertEqual(["22.0\\%", "21.4", "22.6", "63", "71"],
+                         self.bare("A share of 22.0\\% (21.4--22.6) in 63/71 reviews.\n", ".tex"))
 
     def test_identifiers_terms_and_display_references_stay_allowed(self):
         text = ("COVID-19, IL-6, SHA-256, Qwen3.8, citation-census@1, 3D, 16S rRNA, 18F-FDG, 5-FU, the 2nd round, "
@@ -207,12 +207,12 @@ class FactsLintTests(unittest.TestCase):
 
     def test_reference_lists_end_at_the_next_heading(self):
         markdown = ("Intro {{fact:count}}.\n\n## References\n\n1. Author A. Journal 12:34-56 (2019).\n\n"
-                    "## Methods\n\nWe judged 40 entries, 2,200 characters and B = 10,000.\n\n"
+                    "## Methods\n\nWe judged 30 entries, 1,800 characters and B = 2,500.\n\n"
                     "**References**\n\n2. Author B. Journal 7:8 (2018).\n\n# Extended Data\n\nn = 44\n")
-        self.assertEqual(["40", "2,200", "10,000", "44"], self.bare(markdown))
-        latex = ("\\section*{References}\nA. J. 12, 34 (2019).\n\\section{Methods}\nWe used 40 entries.\n"
+        self.assertEqual(["30", "1,800", "2,500", "44"], self.bare(markdown))
+        latex = ("\\section*{References}\nA. J. 12, 34 (2019).\n\\section{Methods}\nWe used 30 entries.\n"
                  "\\subsection*{Bibliography}\nB. K. 5, 6 (2017).\n\\subsection{Extended Data}\nn = 45\n\\end{document}\n")
-        self.assertEqual(["40", "45"], self.bare(latex, ".tex"))
+        self.assertEqual(["30", "45"], self.bare(latex, ".tex"))
 
     def test_unknown_fact_tokens_fail_with_facts(self):
         report = self.lint("{{fact:count}} and {{fact:missing}}\n", facts=self.path)
