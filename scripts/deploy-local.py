@@ -11,11 +11,18 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import platform
 import re
 import shlex
 import subprocess
 import sys
 import uuid
+
+if sys.version_info[:2] < (3, 11):
+    # The companion's catalogs need tomllib; a host python3 of 3.10 would stop at the import below.
+    print(json.dumps({'ok': False, 'error': f'deploy-local.py needs Python 3.11 or newer; {sys.executable} is '
+                      f'{platform.python_version()}: run it with an explicit Python 3.11+ interpreter'}), file=sys.stderr)
+    raise SystemExit(1)
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'src'))
 from ocsl_writing.config import require_operator, resolve_paths
@@ -23,6 +30,12 @@ from ocsl_writing.errors import WritingError
 from ocsl_writing.util import atomic_json, atomic_write, no_symlinks
 
 KEY = re.compile(r'(?:export )?([A-Za-z_][A-Za-z0-9_]*)=(.*)')
+# Owned values that are ;-separated lists: the wrapper adds entries to them and may take back only those.
+LIST_KEYS = ('LAB_SANDBOX_RO_ROOTS', 'LAB_SANDBOX_CHILD_ENV_ALLOWLIST')
+EDITED = ('owned runtime environment values were edited after installation ({keys}); the wrapper never restores its '
+          'receipt over a later edit, and setting the values back to make it run would undo that edit. integrate '
+          'refresh re-copies the skills and integrate uninstall removes skills and MCP entries, both without the '
+          'environment file; the edited values stay as they are')
 
 
 def read_environment(data: bytes) -> dict[str, str]:
@@ -56,11 +69,32 @@ def add_list(value: str, additions: list[str]) -> str:
     return ';'.join(dict.fromkeys([part for part in value.split(';') if part] + additions))
 
 
+def edited_keys(current: dict, expected: dict) -> list[str]:
+    """Owned keys whose current value differs from the receipt's (names only; values are never shown)."""
+    return sorted(key for key, value in expected.items() if current.get(key) != value)
+
+
+def check_restorable(receipt: dict) -> None:
+    """A restore takes back only the wrapper's own additions: for a list key, every entry of the value it restores
+    must be in the value it installed (a receipt that says otherwise, edited by hand, could put back an entry such as
+    a data root that was removed on purpose)."""
+    for key in LIST_KEYS:
+        previous, installed = receipt['previous'].get(key), receipt['installed'].get(key)
+        if previous is None or installed is None:
+            continue
+        held = set(installed.split(';'))
+        if any(part and part not in held for part in previous.split(';')):
+            raise WritingError(f'the receipt would restore {key} entries its installed value never held; '
+                               'preserving the runtime environment')
+
+
 def restore_environment(path: Path, receipt: dict) -> None:
     current = path.read_bytes()
     values = read_environment(current)
-    if any(values.get(key) != value for key, value in receipt['installed'].items()):
-        raise WritingError('owned runtime environment values were edited; preserving them for reconciliation')
+    edited = edited_keys(values, receipt['installed'])
+    if edited:
+        raise WritingError(EDITED.format(keys=', '.join(edited)))
+    check_restorable(receipt)
     atomic_write(path, replace_values(current, receipt['previous']), receipt['mode'])
 
 
@@ -102,9 +136,16 @@ def deploy(args):
             raise WritingError('runtime environment path differs from receipt')
         current = read_environment(args.env_file.read_bytes())
         restoring = receipt.get('phase') == 'uninstall-restage-pending'
-        expected = receipt['previous'] if restoring else receipt['installed']
-        if any(current.get(k) != v for k, v in expected.items()):
-            raise WritingError('owned runtime environment values changed; preserving installation')
+        if restoring:
+            edited = edited_keys(current, receipt['previous'])
+            if edited:
+                raise WritingError(f'owned runtime environment values changed while uninstall restaging was pending '
+                                   f'({", ".join(edited)}); preserving them')
+        else:
+            edited = edited_keys(current, receipt['installed'])
+            if edited:
+                raise WritingError(EDITED.format(keys=', '.join(edited)))
+            check_restorable(receipt)
         if restoring:
             result = receipt['uninstallResult']
         else:
@@ -121,8 +162,11 @@ def deploy(args):
         receipt = json.loads(receipt_path.read_text())
         if receipt.get('phase') == 'uninstall-restage-pending':
             raise WritingError('uninstall restaging is pending; retry uninstall to complete recovery')
-        if receipt['envFile'] != str(args.env_file) or any(values.get(k) != v for k, v in receipt['installed'].items()):
-            raise WritingError('active environment receipt differs from current deployment')
+        if receipt['envFile'] != str(args.env_file):
+            raise WritingError('runtime environment path differs from the active receipt')
+        edited = edited_keys(values, receipt['installed'])
+        if edited:
+            raise WritingError(EDITED.format(keys=', '.join(edited)))
         return run_cli(args, values, 'install')
     for key, expected in [('OCSL_WRITING_HOME', str(args.home)), ('OCSL_WRITING_STATE', str(args.state)),
                           ('OCSL_WRITING_PYTHON', str(args.python))]:
