@@ -493,8 +493,15 @@ def refresh_integration(paths) -> dict:
         journal.unlink(missing_ok=True)
         verified = _verify_owned(paths, state)
         stale = stale_targets(state)
+        # Catalog entries added after the installation have no installed copy to refresh; installing them changes the
+        # set of owned destinations, which is uninstall and install.
+        recorded = {record["target"] for record in state["targets"]}
+        missing = sorted(str(Path(root) / name) for root in state["roots"]
+                         for skill in skills.installation_records(paths) for name in skills.installed_names(skill)
+                         if str(Path(root) / name) not in recorded)
         return {**verified, "ok": not stale, "installed": True, "refreshed": [entry["target"] for entry in entries],
                 "unchanged": len(state["targets"]) - len(entries), "stale": stale,
+                "catalogEntriesNotInstalled": missing,
                 **({"recovered": recovered} if recovered else {}), "statePath": str(state_path),
                 "environment": "not read or written (MCP entries and staging unchanged)"}
 

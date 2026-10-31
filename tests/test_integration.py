@@ -150,7 +150,17 @@ enabled=true
         state = json.loads(integration.install_state_path(self.paths).read_text())
         self.assertEqual([(r["originalSha256"], r["backup"]) for r in state_before["targets"]],
                          [(r["originalSha256"], r["backup"]) for r in state["targets"]])
-        self.assertEqual([], integration.refresh_integration(self.paths)["refreshed"])
+        again = integration.refresh_integration(self.paths)
+        self.assertEqual(([], []), (again["refreshed"], again["catalogEntriesNotInstalled"]))
+        catalog = self.home / "skills/catalog.toml"
+        added = self.home / "skills/paper-later"
+        added.mkdir()
+        (added / "SKILL.md").write_text("---\nname: paper-later\ndescription: Later\n---\nRuntime writing-core\n")
+        (added / "skill.toml").write_text('id="paper-later"\nprimary_environment="writing-core"\n')
+        catalog.write_text(catalog.read_text() + '\n[[skill]]\nid="paper-later"\nname="paper-later"\n'
+                           'path="skills/paper-later"\ndescription="Later"\nprimary_environment="writing-core"\n')
+        self.assertEqual(sorted(str(root / "paper-later") for root in self.roots),
+                         integration.refresh_integration(self.paths)["catalogEntriesNotInstalled"])
         integration.uninstall_integration(self.paths)
         for target, expected in self.originals.items():
             self.assertEqual(tree_digest(Path(target)), expected, "uninstall still restores the pre-install skill")
