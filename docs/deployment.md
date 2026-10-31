@@ -73,6 +73,13 @@ leaves `integration/refresh-pending.json`; the next `integrate refresh` puts the
 journaled copies back (or keeps them, when the state already records them)
 before anything else, and `install`, `uninstall` and `verify` refuse until then.
 
+`install` and `uninstall` (and the wrapper around them) restage through the
+lab's `pnpm puppenclaw:config`. Under a service manager that runs that command
+only inside its own deploy (coscila under systemd refuses it from a checkout),
+they cannot restage: `uninstall` then puts the installed copies back and stops.
+There, `integrate refresh` is the update path; removing the skills also needs
+the deploy that restages the daemon's configuration.
+
 Run the launcher with the interpreter that built the templates, which is what
 `OCSL_WRITING_PYTHON` names in the deployment environment: the launcher hands
 over to the promoted `writing-core` template, which verifies itself against
