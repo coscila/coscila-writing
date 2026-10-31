@@ -58,6 +58,7 @@ def parser() -> argparse.ArgumentParser:
     install.add_argument("--stage-cwd")
     install.add_argument("--stage-timeout", type=float, default=900)
     migration.add_parser("status")
+    migration.add_parser("refresh", help="re-copy installed skills whose source changed (no environment change)")
     verify = migration.add_parser("verify")
     verify.add_argument("--live", action="store_true")
     verify.add_argument("--strict", action="store_true")
@@ -126,6 +127,8 @@ def dispatch(args):
             return integration.install_integration(paths, **integration.resolve_arguments(args))
         if action == "uninstall":
             return integration.uninstall_integration(paths, stage_timeout=args.stage_timeout)
+        if action == "refresh":
+            return integration.refresh_integration(paths)
         result = integration.status(paths, verify=action == "verify")
         if action == "verify" and result.get("installed"):
             from . import mcps

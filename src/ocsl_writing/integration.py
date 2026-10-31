@@ -19,10 +19,17 @@ from .util import (atomic_json, atomic_write, is_within, load_json, no_symlinks,
                    remove_tree, run_command, sha256_bytes, tree_digest)
 
 OWNED_MCP_NAMES = ("ocsl_writing_catalog", "ocsl_writing_academic_search")
+REFRESH_JOURNAL = "refresh-pending.json"
 
 
 def install_state_path(paths) -> Path:
     return paths.integration / "install-state.json"
+
+
+def _refuse_pending_refresh(paths) -> None:
+    if (paths.integration / REFRESH_JOURNAL).exists():
+        raise ValidationError("an interrupted integrate refresh left refresh-pending.json; run integrate refresh to "
+                              "recover it first")
 
 
 @contextmanager
@@ -226,6 +233,7 @@ def install_integration(paths, *, roots: list[Path], mcp_config: Path, staged_co
         pending = paths.integration / "pending.json"
         if pending.exists():
             raise ValidationError("an incomplete migration exists; inspect pending.json before retrying")
+        _refuse_pending_refresh(paths)
         state_path = install_state_path(paths)
         if state_path.exists():
             state = load_json(state_path)
@@ -238,7 +246,8 @@ def install_integration(paths, *, roots: list[Path], mcp_config: Path, staged_co
                 raise ValidationError("active installation configuration differs; uninstall before changing it")
             for record in state["targets"]:
                 if tree_digest(Path(record["source"])) != record["installedSha256"]:
-                    raise ValidationError("source skills changed; uninstall before reinstalling updates")
+                    raise ValidationError("source skills changed since installation; integrate refresh re-copies them "
+                                          "(no environment change), or uninstall before reinstalling")
             acceptance = _acceptance(paths, staged_config)
             return {"ok": True, "reused": True, "roots": state["roots"], "mcpAcceptance": acceptance}
 
@@ -344,6 +353,7 @@ def install_integration(paths, *, roots: list[Path], mcp_config: Path, staged_co
 def uninstall_integration(paths, *, stage_timeout=900) -> dict:
     require_operator()
     with _lock(paths):
+        _refuse_pending_refresh(paths)
         state_path = install_state_path(paths)
         if not state_path.exists():
             return {"ok": True, "installed": False, "reused": True}
@@ -377,6 +387,118 @@ def uninstall_integration(paths, *, stage_timeout=900) -> dict:
                 "receipt": str(archive)}
 
 
+def _recover_refresh(paths, journal: Path, state: dict) -> dict:
+    """Finish or undo an interrupted refresh from its journal: a copy whose new digest the install state already
+    records stays (the refresh completed before it was cleaned up); every other swapped copy gets its old tree back."""
+    record = load_json(journal)
+    if record.get("schemaVersion") != 1 or not isinstance(record.get("entries"), list):
+        raise ValidationError(f"unrecognized refresh journal; inspect {journal}")
+    recorded = {item["target"]: item["installedSha256"] for item in state["targets"]}
+    restored, kept = [], []
+    for entry in reversed(record["entries"]):
+        target, aside, stage = Path(entry["target"]), Path(entry["aside"]), Path(entry["stage"])
+        for path in (target, aside, stage):
+            no_symlinks(path)
+        if recorded.get(entry["target"]) == entry["new"]:
+            kept.append(str(target))
+        elif aside.exists():
+            if target.exists():
+                remove_tree(target)
+            os.replace(aside, target)
+            restored.append(str(target))
+        if aside.exists():
+            remove_tree(aside)
+        if stage.exists():
+            remove_tree(stage)
+    journal.unlink()
+    return {"restored": restored, "kept": kept}
+
+
+def refresh_integration(paths) -> dict:
+    """Re-copy installed skill and resource trees whose companion source changed since installation, and verify them.
+
+    Nothing else is touched: MCP entries and staging stay as installed, and the deployment's runtime environment file
+    and the deployment wrapper's receipt of its values are neither read nor written. The pre-install backups stay as
+    recorded, so uninstall still restores what stood there before the first install. A copy edited after installation
+    is refused, never overwritten; a source that no longer exists needs uninstall, then install.
+    """
+    require_operator()
+    skills.validate_catalog(paths)
+    with _lock(paths):
+        if (paths.integration / "pending.json").exists():
+            raise ValidationError("an incomplete migration exists; inspect pending.json before refreshing")
+        state_path = install_state_path(paths)
+        if not state_path.exists():
+            raise ValidationError("the writing integration is not installed; nothing to refresh")
+        state = load_json(state_path)
+        _validate_state(paths, state)
+        journal = paths.integration / REFRESH_JOURNAL
+        recovered = _recover_refresh(paths, journal, state) if journal.exists() else None
+        _verify_owned(paths, state)
+        digests: dict[str, str] = {}
+        plan = []
+        for record in state["targets"]:
+            source = Path(record["source"])
+            if not source.is_dir():
+                raise ValidationError(f"the source of an installed copy no longer exists: {source}; renew the "
+                                      "installation with integrate uninstall and integrate install")
+            if record["source"] not in digests:
+                digests[record["source"]] = tree_digest(source)
+            if digests[record["source"]] != record["installedSha256"]:
+                plan.append(record)
+        refresh_id = uuid.uuid4().hex
+        entries: list[dict] = []
+        try:
+            for record in plan:
+                target = Path(record["target"])
+                stage = target.parent / f".ocsl-writing-refresh-{refresh_id}-{target.name}"
+                aside = target.parent / f".ocsl-writing-aside-{refresh_id}-{target.name}"
+                for path in (stage, aside):
+                    no_symlinks(path)
+                    if path.exists():
+                        raise ValidationError(f"refresh staging path already exists: {path}")
+                entry = {"target": str(target), "stage": str(stage), "aside": str(aside),
+                         "old": record["installedSha256"], "new": digests[record["source"]]}
+                entries.append(entry)
+                shutil.copytree(Path(record["source"]), stage, symlinks=True)
+                if tree_digest(stage) != entry["new"]:
+                    raise ValidationError(f"the source changed while it was copied: {record['source']}")
+            if entries:
+                atomic_json(journal, {"schemaVersion": 1, "refreshId": refresh_id, "entries": entries})
+            for entry in entries:
+                target = Path(entry["target"])
+                if tree_digest(target) != entry["old"]:
+                    raise ValidationError(f"installed copy changed during the refresh: {target}")
+                os.replace(target, entry["aside"])
+                os.replace(entry["stage"], target)
+                if tree_digest(target) != entry["new"]:
+                    raise ValidationError(f"refreshed copy failed verification: {target}")
+            for record in plan:
+                record["installedSha256"] = digests[record["source"]]
+            if plan:
+                atomic_json(state_path, state)
+        except BaseException:
+            for entry in reversed(entries):
+                target, aside, stage = Path(entry["target"]), Path(entry["aside"]), Path(entry["stage"])
+                if aside.exists():
+                    if target.exists():
+                        remove_tree(target)
+                    os.replace(aside, target)
+                if stage.exists():
+                    remove_tree(stage)
+            journal.unlink(missing_ok=True)
+            raise
+        for entry in entries:
+            remove_tree(Path(entry["aside"]))
+        journal.unlink(missing_ok=True)
+        verified = _verify_owned(paths, state)
+        stale = stale_targets(state)
+        return {**verified, "ok": not stale, "installed": True, "refreshed": [entry["target"] for entry in entries],
+                "unchanged": len(state["targets"]) - len(entries), "stale": stale,
+                **({"recovered": recovered} if recovered else {}), "statePath": str(state_path),
+                "environment": "not read or written (MCP entries and staging unchanged)"}
+
+
 def stale_targets(state: dict) -> list[str]:
     """Installed copies whose source skill changed since installation (a companion update moves only the checkout)."""
     current: dict[str, str | None] = {}
@@ -395,16 +517,19 @@ def status(paths, *, verify=False) -> dict:
     if not state_path.exists():
         return {"ok": not verify, "installed": False,
                 "pending": (paths.integration / "pending.json").exists()}
+    if verify and (paths.integration / REFRESH_JOURNAL).exists():
+        return {"ok": False, "installed": True, "statePath": str(state_path), "refreshPending": True,
+                "reason": "an interrupted integrate refresh left refresh-pending.json; run integrate refresh to recover"}
     state = load_json(state_path)
     result = _verify_owned(paths, state) if verify else {"ok": True, "roots": state["roots"]}
     if verify:
         stale = stale_targets(state)
         if stale:
-            # Agents would keep reading text the source no longer has: verification fails until the installation is
-            # renewed from the current source (uninstall, then install).
+            # Agents would keep reading text the source no longer has: verification fails until the installed copies
+            # are renewed from the current source (integrate refresh, which leaves the environment alone).
             result = {**result, "ok": False, "stale": stale,
                       "reason": "installed writing skills are stale (copied from an older companion source); "
-                                "run integrate uninstall and integrate install to renew them"}
+                                "run integrate refresh to re-copy them (or integrate uninstall, then install)"}
     return {**result, "installed": True, "statePath": str(state_path)}
 
 
